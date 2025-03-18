@@ -1,0 +1,93 @@
+---
+title: 'Project Management'
+description: 'API endpoints for managing WaveAssist projects'
+---
+
+# Project Management
+
+These endpoints allow you to manage your WaveAssist projects, including creation, fetching project details, and managing project variables.
+
+## Create Project
+
+Create a new project in WaveAssist.
+
+```endpoint
+POST /manage/create_project
+```
+
+### Request Body
+```json
+{
+  "project_name": "string",
+  "description": "string"
+}
+```
+
+## Fetch All Projects
+
+Retrieve a list of all your projects.
+
+```endpoint
+GET /manage/fetch_all_projects
+```
+
+### Response
+```json
+{
+  "projects": [
+    {
+      "project_key": "string",
+      "project_name": "string",
+      "description": "string",
+      "created_at": "string"
+    }
+  ]
+}
+```
+
+## Fetch Project Variables
+
+Get all variables associated with a project.
+
+```endpoint
+GET /manage/fetch_project_variables
+```
+
+### Query Parameters
+```json
+{
+  "project_key": "string"
+}
+```
+
+## Fetch Environments
+
+Get all environments configured for a project.
+
+```endpoint
+GET /manage/fetch_environments
+```
+
+### Query Parameters
+```json
+{
+  "project_key": "string"
+}
+```
+
+## Create Data Key
+
+Create a new data key for storing project data.
+
+```endpoint
+POST /manage/create_data_key
+```
+
+### Request Body
+```json
+{
+  "project_key": "string",
+  "key_name": "string",
+  "description": "string"
+}
+```

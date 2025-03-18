@@ -1,0 +1,112 @@
+---
+title: 'Data Management'
+description: 'API endpoints for managing data in WaveAssist'
+---
+
+# Data Management
+
+These endpoints allow you to manage data within your WaveAssist projects, including file uploads, downloads, and data key operations.
+
+## Upload Data File
+
+Upload a file to your project.
+
+```endpoint
+POST /data/upload_data_file
+```
+
+### Request Body
+```json
+{
+  "project_key": "string",
+  "file": "binary"
+}
+```
+
+## Download Data File
+
+Download a file from your project.
+
+```endpoint
+GET /data/download_data_file
+```
+
+### Query Parameters
+```json
+{
+  "project_key": "string",
+  "file_key": "string"
+}
+```
+
+## Fetch Data for Key
+
+Retrieve data associated with a specific key.
+
+```endpoint
+GET /data/fetch_data_for_key
+```
+
+### Query Parameters
+```json
+{
+  "project_key": "string",
+  "data_key": "string"
+}
+```
+
+## Set Data for Key
+
+Set data for a specific key.
+
+```endpoint
+POST /data/set_data_for_key
+```
+
+### Request Body
+```json
+{
+  "project_key": "string",
+  "data_key": "string",
+  "value": "any"
+}
+```
+
+## Get Integration Data
+
+Retrieve data from integrated services.
+
+```endpoint
+GET /data/get_integration_data
+```
+
+### Query Parameters
+```json
+{
+  "project_key": "string",
+  "integration_key": "string"
+}
+```
+
+## Python SDK Example
+
+Here's how to use these endpoints with the Python SDK:
+
+```python
+from waveassist import WaveAssist
+
+# Initialize client
+wa = WaveAssist(project_key='your_project_key')
+
+# Get data
+value = wa.get('my_data_key')
+
+# Set data
+wa.set('my_data_key', 'new_value')
+
+# Upload file
+wa.upload_file('path/to/local/file.csv')
+
+# Download file
+wa.download_file('file_key', 'local_destination.csv')
+```

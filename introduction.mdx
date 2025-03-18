@@ -1,71 +1,119 @@
 ---
-title: Introduction
-description: "Welcome to the home of your new documentation"
+title: Getting Started 
+description: "Learn how to create and manage your AI workflow projects with WaveAssist"
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.png"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.png"
-  alt="Hero Dark"
-/>
+# Welcome to WaveAssist
 
-## Setting up
+WaveAssist is a powerful platform that helps you create, manage, and automate AI workflows. This guide will help you get started with creating your first project and understanding the dashboard.
 
-The first step to world-class documentation is setting up your editing environments.
+## Dashboard Overview
+
+The WaveAssist dashboard is organized into several key sections:
 
 <CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
+  <Card title="Nodes" icon="diagram-project">
+    Create and manage your workflow nodes
   </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
+  <Card title="Variables" icon="code">
+    Manage project variables and configurations
+  </Card>
+  <Card title="Packages" icon="box">
+    Install and manage Python packages
+  </Card>
+  <Card title="Environments" icon="server">
+    Configure different deployment environments
   </Card>
 </CardGroup>
 
-## Make it yours
+## Creating Your First Project
 
-Update your docs to your brand and add valuable content for the best user conversion.
+1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io)
+2. Click the "Add Project" card to create a new project
+3. Fill in your project details
+4. Navigate to the Nodes section to start building your workflow
+
+<Frame caption="Create new project">
+  <img
+    className="rounded-lg shadow-lg dark:shadow-neutral-900"
+    src="/images/create_project.png"
+    alt="WaveAssist Project Creation"
+  />
+</Frame>
+
+### Project Details
+When creating a new project, you'll need to provide:
+- Project name (e.g., "FirstProject", "WaveAssist")
+- Project key (e.g., "fp", "wa")
+- Description (optional)
+
+<Frame caption="Project details configuration">
+  <img
+    className="rounded-lg shadow-lg dark:shadow-neutral-900 border border-neutral-200 dark:border-neutral-700"
+    src="/images/project_details.png"
+    alt="Project Details Configuration"
+  />
+</Frame>
+
+Once created, your project will appear in the dashboard alongside other projects, where you can easily access and manage it.
+
+## Managing Nodes
+
+In the Nodes section, you can:
+
+### Create a Node
+Click the '+' button in the top-right corner to create a new node. Each node represents a specific task in your workflow.
+
+### Configure Node Settings
+For each node, you can configure:
+- **Name**: A unique identifier for your node
+- **Status**: Enable/disable the node
+- **Schedule**: Set intervals for automatic execution
+  - Options include:
+    - Every 12 hours
+    - Every 12 days
+    - Cron expressions for custom schedules
+
+### Node Actions
+Each node has three main actions:
+- **View Code**: Edit the node's implementation
+- **Edit**: Modify node configuration
+- **Run**: Execute the node manually
+
+## Example Node Types
+
+Here are some common node types you can create:
+
+<CardGroup cols={2}>
+  <Card title="Data Processing" icon="database">
+    Example: `ConvertToText` - Converts data between formats
+  </Card>
+  <Card title="Image Processing" icon="image">
+    Example: `Generate Image Segments` - Process and analyze images
+  </Card>
+  <Card title="AI Tasks" icon="robot">
+    Example: `Generate GPT Images` - AI-powered image generation
+  </Card>
+  <Card title="Management" icon="gears">
+    Example: `Manage GPT Woke` - System management tasks
+  </Card>
+</CardGroup>
+
+## Next Steps
 
 <CardGroup cols={2}>
   <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
+    title="API Reference"
     icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    href="/api-reference/introduction"
   >
-    Automatically generate endpoints from an OpenAPI spec
+    Explore our API documentation to integrate WaveAssist
   </Card>
   <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/content/components/accordions"
+    title="Python SDK"
+    icon="python"
+    href="/api-reference/endpoint/data-management"
   >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
+    Learn how to use our Python SDK for automation
   </Card>
 </CardGroup>

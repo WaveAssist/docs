@@ -1,107 +1,168 @@
 ---
-title: 'Development'
-description: 'Preview changes locally to update your docs'
+title: 'Development Guide'
+description: 'Learn how to develop with WaveAssist'
 ---
 
 <Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding. <br />
-  Please upgrade to ```docs.json``` before proceeding and delete the legacy ```mint.json``` file.
+  **Prerequisites**: 
+  - Python 3.7 or higher
+  - pip (Python package manager)
+  - A WaveAssist account and project key
 </Info>
 
-Follow these steps to install and run Mintlify on your operating system:
+## Development Options
 
-**Step 1**: Install Mintlify:
+WaveAssist provides two primary development workflows: using our web-based dashboard or developing locally with our Python SDK.
+
+### Dashboard Development
+
+The WaveAssist dashboard offers a complete development environment in your browser.
+
+<AccordionGroup>
+  <Accordion icon="code" title="Code Editor Features">
+    Our built-in code editor provides:
+    - Syntax highlighting
+    - Auto-completion
+    - Real-time error checking
+    - Direct node execution
+    
+    <Frame caption="Code Editor Interface">
+      <img
+        className="rounded-lg shadow-lg dark:shadow-neutral-900 border border-neutral-200 dark:border-neutral-700"
+        src="/images/code_editor.png"
+        alt="WaveAssist Code Editor"
+      />
+    </Frame>
+  </Accordion>
+
+  <Accordion icon="gear" title="Node Configuration">
+    Configure node settings directly in the dashboard:
+    ```json
+    {
+      "name": "DataProcessor",
+      "type": "processing",
+      "schedule": "every 12 hours",
+      "inputs": ["raw_data"],
+      "outputs": ["processed_data"]
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Local Development
+
+Develop and test your nodes locally using our Python SDK.
 
 <CodeGroup>
 
-  ```bash npm
-  npm i -g mintlify
-  ```
+```bash Installation
+pip install waveassist
+```
 
-```bash yarn
-yarn global add mintlify
+```python Initialize
+from waveassist import WAHelper
+
+# Connect to your project
+helper = WAHelper('your-project-key')
+```
+
+```python Development
+# Configure pandas options
+helper.set_option('display.max_columns', None)
+
+# Make API requests
+url = 'https://api.example.com/data'
+headers = {
+    'Accept': 'application/json',
+    'Connection': 'keep-alive'
+}
+
+# Process data
+response = helper.process_data(url, headers)
 ```
 
 </CodeGroup>
 
-**Step 2**: Navigate to the docs directory (where the `docs.json` file is located) and execute the following command:
+## Best Practices
 
-```bash
-mintlify dev
+<CardGroup>
+  <Card title="Version Control" icon="code-branch">
+    Keep your node code in version control and use the dashboard for deployment
+  </Card>
+  <Card title="Testing" icon="vial">
+    Test nodes locally before deploying to production
+  </Card>
+  <Card title="Environment Variables" icon="key">
+    Use project variables for sensitive data and configurations
+  </Card>
+  <Card title="Modular Design" icon="cubes">
+    Break complex workflows into smaller, reusable nodes
+  </Card>
+</CardGroup>
+
+## Advanced Features
+
+### Custom Node Types
+
+Create specialized nodes for your workflow:
+
+```python
+from waveassist import WAHelper, NodeType
+
+# Initialize helper
+helper = WAHelper('your-project-key')
+
+# Define custom node
+@helper.node(type=NodeType.PROCESSOR)
+def process_data(input_data):
+    # Your processing logic here
+    return processed_data
 ```
 
-A local preview of your documentation will be available at `http://localhost:3000`.
+### Scheduling
 
-### Custom Ports
-
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. To run Mintlify on port 3333, for instance, use this command:
-
-```bash
-mintlify dev --port 3333
-```
-
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
-
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
-
-## Mintlify Versions
-
-Please note that each CLI release is associated with a specific version of Mintlify. If your local website doesn't align with the production version, please update the CLI:
+Configure node execution schedules:
 
 <CodeGroup>
 
-```bash npm
-npm i -g mintlify@latest
+```python Interval
+# Run every 12 hours
+helper.schedule_node('node_name', interval='12h')
 ```
 
-```bash yarn
-yarn global upgrade mintlify
+```python Cron
+# Run at specific times
+helper.schedule_node('node_name', cron='0 */12 * * *')
+```
+
+```python Custom
+# Custom schedule
+helper.schedule_node('node_name', 
+    trigger=lambda: condition_met())
 ```
 
 </CodeGroup>
-
-## Validating Links
-
-The CLI can assist with validating reference links made in your documentation. To identify any broken links, use the following command:
-
-```bash
-mintlify broken-links
-```
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Pro
-  Plan](https://mintlify.com/pricing) and above.
-</Tip>
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Code Formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
-    This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of mintlify: `npm remove -g mintlify`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall mintlify: `npm install -g mintlify`
+  <Accordion title="Connection Issues">
+    If you're having trouble connecting to WaveAssist:
+    1. Verify your project key
+    2. Check your internet connection
+    3. Ensure you're using the latest SDK version
   </Accordion>
 
-  <Accordion title="Issue: Encountering an unknown error">
-  
-    Solution: Go to the root of your device and delete the \~/.mintlify folder. Afterwards, run `mintlify dev` again.
+  <Accordion title="Node Execution Errors">
+    Common node execution issues:
+    - Missing dependencies
+    - Incorrect input data format
+    - Memory/CPU constraints
+    
+    Use `helper.debug_node('node_name')` to get detailed error information.
   </Accordion>
 </AccordionGroup>
 
-Curious about what changed in the CLI version? [Check out the CLI changelog.](https://www.npmjs.com/package/mintlify?activeTab=versions)
+<Note>
+For more advanced development scenarios and API documentation, refer to our [API Reference](/api-reference/introduction).
+</Note>

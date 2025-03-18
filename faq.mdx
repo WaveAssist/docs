@@ -1,0 +1,149 @@
+---
+title: 'Frequently Asked Questions'
+description: 'Common questions about using WaveAssist'
+---
+
+## General Questions
+
+<AccordionGroup>
+  <Accordion icon="question" title="What is WaveAssist?">
+    WaveAssist is a powerful platform for creating and managing AI workflows. It allows you to:
+    - Create and manage projects via a web dashboard
+    - Build automated workflows using nodes
+    - Process data using Python scripts
+    - Schedule automated tasks
+    - Manage deployments and environments
+  </Accordion>
+
+  <Accordion icon="key" title="How do I get my project key?">
+    1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io)
+    2. Select your project
+    3. Go to project settings
+    4. Find your project key in the "API Keys" section
+    
+    **Important**: Keep your project key secure and never share it publicly.
+  </Accordion>
+
+  <Accordion icon="code" title="Can I develop locally without using the dashboard?">
+    Yes! WaveAssist provides a Python SDK that allows you to:
+    - Develop and test nodes locally
+    - Access project variables
+    - Manage data and workflows
+    - Deploy changes to production
+    
+    Install the SDK using: `pip install waveassist`
+  </Accordion>
+</AccordionGroup>
+
+## Nodes and Workflows
+
+<AccordionGroup>
+  <Accordion icon="diagram-project" title="What are nodes in WaveAssist?">
+    Nodes are the building blocks of your workflows. Each node:
+    - Performs a specific task
+    - Can process inputs and generate outputs
+    - Can be scheduled to run automatically
+    - Can be connected to other nodes to create complex workflows
+  </Accordion>
+
+  <Accordion icon="clock" title="How do I schedule node execution?">
+    WaveAssist provides multiple scheduling options:
+    - Fixed intervals (e.g., every 12 hours)
+    - Cron expressions for custom schedules
+    - Event-based triggers
+    - Manual execution
+    
+    You can set schedules either through the dashboard or using the Python SDK.
+  </Accordion>
+
+  <Accordion icon="gear" title="What types of nodes can I create?">
+    WaveAssist supports various node types:
+    - Data processing nodes
+    - API integration nodes
+    - Machine learning nodes
+    - Custom nodes with your own logic
+    
+    Each type can be customized with specific inputs, outputs, and configurations.
+  </Accordion>
+</AccordionGroup>
+
+## Data Management
+
+<AccordionGroup>
+  <Accordion icon="database" title="How does data handling work?">
+    WaveAssist provides several ways to handle data:
+    - Upload files directly through the dashboard
+    - Use the Python SDK for programmatic data access
+    - Connect to external data sources
+    - Store and retrieve data using data keys
+  </Accordion>
+
+  <Accordion icon="shield" title="Is my data secure?">
+    Yes, WaveAssist implements several security measures:
+    - Encrypted data transmission
+    - Secure project isolation
+    - Access control through project keys
+    - Environment-specific configurations
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="bug" title="Common node execution errors">
+    Common issues and solutions:
+    1. **Connection errors**
+       - Verify your project key
+       - Check network connectivity
+       - Ensure SDK is up to date
+    
+    2. **Runtime errors**
+       - Check node dependencies
+       - Verify input data format
+       - Review node logs
+    
+    3. **Scheduling issues**
+       - Confirm timezone settings
+       - Check node status
+       - Verify cron expressions
+  </Accordion>
+
+  <Accordion icon="rotate" title="How do I update my nodes?">
+    To update existing nodes:
+    1. In the dashboard:
+       - Click the edit button
+       - Modify code or configuration
+       - Save changes
+    
+    2. Using SDK:
+       ```python
+       helper.update_node('node_name', new_code)
+       ```
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion icon="star" title="Tips for efficient workflow design">
+    1. **Keep nodes focused**
+       - One primary task per node
+       - Clear input/output definitions
+    
+    2. **Use version control**
+       - Track code changes
+       - Maintain deployment history
+    
+    3. **Test thoroughly**
+       - Test locally first
+       - Use different environments
+    
+    4. **Monitor performance**
+       - Check execution logs
+       - Monitor resource usage
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+Still have questions? Contact our support team or check our [API Reference](/api-reference/introduction) for detailed documentation.
+</Note>

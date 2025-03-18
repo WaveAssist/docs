@@ -1,33 +1,57 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'API Reference'
+description: 'Complete reference for the WaveAssist API'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+# WaveAssist API
 
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+WaveAssist provides a comprehensive REST API that enables you to programmatically manage your projects, nodes, data, and deployments. The API is organized around the following main categories:
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API requests require authentication using your project key. You can obtain your project key from the [WaveAssist Dashboard](https://app.waveassist.io/manage/nodes).
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+## Core Features
+
+### Project Management
+- Create and manage projects via `/manage/create_project` and `/manage/fetch_all_projects`
+- Handle project variables with `/manage/fetch_project_variables`
+- Manage environments using `/manage/fetch_environments`
+
+### Node Operations
+- Create, update, and delete nodes using `/manage/create_node`, `/manage/update_node`, and `/manage/delete_node`
+- Manage node configurations and code via `/manage/update_code`
+- View node status with `/manage/fetch_nodes`
+
+### Data Management
+- Upload and download data files using `/data/upload_data_file` and `/data/download_data_file`
+- Get and set data for specific keys via `/data/fetch_data_for_key` and `/data/set_data_for_key`
+- Handle integration data with `/data/get_integration_data`
+
+### Deployment & Debug
+- Deploy and stop projects using `/deploy/deploy_project` and `/deploy/stop_deployment`
+- Run DAGs and generate visualizations via `/deploy/run_dag` and `/deploy/generate_dag_image`
+- Access logs and manage packages through `/debug/fetch_logs` and related endpoints
+
+## Python SDK
+For Python users, we recommend using our official Python package:
+
+```bash
+pip install waveassist
 ```
+
+This provides a convenient interface to interact with WaveAssist's API and manage your project variables. Example usage:
+
+```python
+from waveassist import WaveAssist
+
+# Initialize client with your project key
+wa = WaveAssist(project_key='your_project_key')
+
+# Get and set variables
+value = wa.get('variable_name')
+wa.set('variable_name', new_value)
+```
+
+## Base URL
+All API endpoints are relative to: `https://api.waveassist.io`
