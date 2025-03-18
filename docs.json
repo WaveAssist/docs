@@ -60,11 +60,12 @@
     "dark": "/logo/dark.png"
   },
   "navbar": {
-    "secondary": {
-      "type": "link",
-      "label": "Blog",
-      "href": "https://app.waveassist.io"
-    },
+    "links": [
+      {
+        "label": "Blog",
+        "href": "https://waveassist.io/blog"
+      }
+    ],
     "primary": {
       "type": "button",
       "label": "Get Started",
