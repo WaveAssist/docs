@@ -22,14 +22,13 @@
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Core Concepts",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "core-concepts/nodes",
+              "core-concepts/workflows",
+              "core-concepts/data-management",
+              "core-concepts/environments",
+              "core-concepts/security"
             ]
           }
         ]
@@ -66,7 +65,6 @@
       "label": "Blog",
       "href": "https://app.waveassist.io"
     },
-
     "primary": {
       "type": "button",
       "label": "Get Started",

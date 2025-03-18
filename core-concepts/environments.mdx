@@ -1,0 +1,71 @@
+---
+title: 'Environments'
+description: 'Managing different environments in WaveAssist'
+---
+
+## Environment Management
+
+WaveAssist supports multiple environments to help you develop, test, and deploy your AI workflows securely.
+
+### Environment Types
+
+<CardGroup>
+  <Card title="Development" icon="code">
+    For local development and testing
+  </Card>
+  <Card title="Staging" icon="flask">
+    For integration testing
+  </Card>
+  <Card title="Production" icon="rocket">
+    For live workflows
+  </Card>
+  <Card title="Custom" icon="gear">
+    For specialized needs
+  </Card>
+</CardGroup>
+
+## Environment Configuration
+
+```python
+from waveassist import WAHelper
+
+# Initialize with environment
+helper = WAHelper(
+    project_key='your-project-key',
+    environment='development'
+)
+
+# Set environment variables
+helper.set_env_var('API_ENDPOINT', 'https://api.dev.example.com')
+helper.set_env_var('MODEL_VERSION', 'v2.0')
+
+# Get environment settings
+config = helper.get_env_config()
+```
+
+## Environment Variables
+
+```json
+{
+  "environment": "staging",
+  "variables": {
+    "API_ENDPOINT": "https://api.staging.example.com",
+    "MODEL_VERSION": "v2.1",
+    "DEBUG_MODE": true,
+    "MAX_RETRIES": 3
+  },
+  "resources": {
+    "memory_limit": "4Gi",
+    "cpu_limit": "2"
+  }
+}
+```
+
+## Best Practices
+
+1. **Isolation**: Keep environments completely isolated
+2. **Configuration**: Use environment-specific configurations
+3. **Testing**: Test thoroughly in staging before production
+4. **Monitoring**: Set up monitoring for each environment
+5. **Access Control**: Implement proper access controls
+6. **Documentation**: Document environment differences

@@ -1,0 +1,69 @@
+---
+title: 'Nodes'
+description: 'Understanding WaveAssist nodes and their capabilities'
+---
+
+## What are Nodes?
+
+Nodes are the fundamental building blocks of WaveAssist workflows. Each node represents a specific task or operation in your AI workflow.
+
+### Node Types
+
+<CardGroup>
+  <Card title="Processing Nodes" icon="gear">
+    Transform and process data using custom Python code
+  </Card>
+  <Card title="API Nodes" icon="globe">
+    Interact with external services and APIs
+  </Card>
+  <Card title="ML Nodes" icon="brain">
+    Execute machine learning models and AI tasks
+  </Card>
+  <Card title="Data Nodes" icon="database">
+    Handle data input/output operations
+  </Card>
+</CardGroup>
+
+## Node Configuration
+
+```json
+{
+  "name": "DataProcessor",
+  "type": "processing",
+  "inputs": ["raw_data"],
+  "outputs": ["processed_data"],
+  "schedule": "0 */12 * * *",
+  "environment": "production",
+  "resources": {
+    "memory": "2Gi",
+    "cpu": "1"
+  }
+}
+```
+
+## Node Development
+
+```python
+from waveassist import WAHelper, NodeType
+
+# Initialize helper
+helper = WAHelper('your-project-key')
+
+# Create a processing node
+@helper.node(type=NodeType.PROCESSOR)
+def process_data(input_data):
+    # Your processing logic here
+    processed_data = transform(input_data)
+    return processed_data
+
+# Schedule the node
+helper.schedule_node('process_data', interval='12h')
+```
+
+## Best Practices
+
+1. **Single Responsibility**: Each node should perform one specific task
+2. **Input Validation**: Always validate input data before processing
+3. **Error Handling**: Implement proper error handling and logging
+4. **Resource Management**: Configure appropriate resource limits
+5. **Testing**: Test nodes thoroughly before deployment
