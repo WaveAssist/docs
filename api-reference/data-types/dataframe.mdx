@@ -1,0 +1,85 @@
+---
+title: 'DataFrame Data Type'
+description: 'Working with pandas DataFrames in WaveAssist'
+---
+
+# DataFrame Data Type
+
+Learn how to work with pandas DataFrames in WaveAssist.
+
+## Overview
+
+WaveAssist provides native support for pandas DataFrames, making it easy to store and retrieve tabular data.
+
+## Working with DataFrames
+
+```python
+import pandas as pd
+import waveassist
+
+# Create a sample DataFrame
+df = pd.DataFrame({
+    'name': ['Alice', 'Bob', 'Charlie'],
+    'age': [25, 30, 35],
+    'score': [95.5, 88.0, 92.5]
+})
+
+# Store the DataFrame
+waveassist.store_data("user_data", df)
+
+# Retrieve the DataFrame
+retrieved_df = waveassist.fetch_data("user_data")
+```
+
+## Supported DataFrame Features
+
+- All basic pandas data types
+- Index types (numeric, datetime, string)
+- Column names and types
+- DataFrame metadata
+
+## DataFrame Limitations
+
+- Maximum size: 100MB
+- Supported column types:
+  - Numeric (int, float)
+  - String
+  - Boolean
+  - Datetime
+  - Category
+
+## Best Practices
+
+1. Clean and preprocess data before storing
+2. Use appropriate data types for columns
+3. Consider memory usage and size limits
+4. Handle missing values appropriately
+
+## Example Use Cases
+
+```python
+# Time series data
+time_df = pd.DataFrame({
+    'timestamp': pd.date_range('2025-01-01', periods=100),
+    'value': np.random.randn(100)
+})
+waveassist.store_data("time_series", time_df)
+
+# Categorical data
+category_df = pd.DataFrame({
+    'category': ['A', 'B', 'A', 'C'],
+    'value': [1, 2, 3, 4]
+})
+category_df['category'] = category_df['category'].astype('category')
+waveassist.store_data("categorical_data", category_df)
+```
+
+## Error Handling
+
+```python
+try:
+    huge_df = pd.DataFrame(np.random.randn(1000000, 100))
+    waveassist.store_data("huge_data", huge_df)
+except waveassist.DataSizeError:
+    print("DataFrame exceeds size limit")
+```

@@ -1,0 +1,85 @@
+---
+title: 'Set Data'
+description: 'API endpoint for storing data in WaveAssist'
+---
+
+# Set Data API
+
+This endpoint allows you to store data in your WaveAssist project.
+
+## Endpoint
+
+```bash
+POST /api/v1/data/{project_id}
+```
+
+## Authentication
+
+Include your API token in the request header:
+
+```bash
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+## Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| project_id | string | Your project identifier |
+
+## Request Body
+
+```json
+{
+  "key": "your_key",
+  "value": "your_data",
+  "type": "string|dataframe|json"
+}
+```
+
+## Response
+
+### Success Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "key": "your_key",
+    "created_at": "2025-03-23T14:00:00Z"
+  }
+}
+```
+
+### Error Response
+
+```json
+{
+  "status": "error",
+  "message": "Error message description"
+}
+```
+
+## Example Usage
+
+```python
+import requests
+
+headers = {
+    'Authorization': 'Bearer YOUR_API_TOKEN'
+}
+
+data = {
+    'key': 'your_key',
+    'value': 'your_data',
+    'type': 'string'
+}
+
+response = requests.post(
+    'https://api.waveassist.io/v1/data/your_project_id',
+    headers=headers,
+    json=data
+)
+
+result = response.json()
+```

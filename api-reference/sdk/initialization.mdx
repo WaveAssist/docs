@@ -1,0 +1,73 @@
+---
+title: 'Initialization'
+description: 'How to initialize the WaveAssist SDK'
+---
+
+# SDK Initialization
+
+Learn how to initialize the WaveAssist SDK in your Python project.
+
+## Installation
+
+First, install the WaveAssist package using pip:
+
+```bash
+pip install waveassist
+```
+
+## Basic Initialization
+
+```python
+import waveassist
+
+waveassist.init(
+    token="your-api-token",
+    project_key="your-project-id"
+)
+```
+
+## Advanced Initialization
+
+You can also specify an environment when initializing the SDK:
+
+```python
+waveassist.init(
+    token="your-api-token",
+    project_key="your-project-id",
+    environment_key="production"  # defaults to <project_key>_default
+)
+```
+
+## Configuration Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| token | string | Yes | Your API token for authentication |
+| project_key | string | Yes | Your project identifier |
+| environment_key | string | No | Environment to use (defaults to project_key_default) |
+
+## Error Handling
+
+```python
+try:
+    waveassist.init(token="invalid-token", project_key="project-id")
+except waveassist.AuthenticationError:
+    print("Invalid authentication token")
+except waveassist.ConfigurationError:
+    print("Invalid configuration")
+```
+
+## Best Practices
+
+1. Never hardcode your API token in your code
+2. Use environment variables for sensitive information
+3. Initialize the SDK once at the start of your application
+
+```python
+import os
+from waveassist import init
+
+init(
+    token=os.environ.get('WAVEASSIST_TOKEN'),
+    project_key=os.environ.get('WAVEASSIST_PROJECT')
+)

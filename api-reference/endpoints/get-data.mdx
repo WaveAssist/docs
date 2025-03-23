@@ -1,0 +1,71 @@
+---
+title: 'Get Data'
+description: 'API endpoint for retrieving data from WaveAssist'
+---
+
+# Get Data API
+
+This endpoint allows you to retrieve data from your WaveAssist project.
+
+## Endpoint
+
+```bash
+GET /api/v1/data/{project_id}/{key}
+```
+
+## Authentication
+
+Include your API token in the request header:
+
+```bash
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+## Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| project_id | string | Your project identifier |
+| key | string | The key of the data you want to retrieve |
+
+## Response
+
+### Success Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "key": "your_key",
+    "value": "your_data",
+    "type": "string|dataframe|json",
+    "updated_at": "2025-03-23T14:00:00Z"
+  }
+}
+```
+
+### Error Response
+
+```json
+{
+  "status": "error",
+  "message": "Error message description"
+}
+```
+
+## Example Usage
+
+```python
+import requests
+
+headers = {
+    'Authorization': 'Bearer YOUR_API_TOKEN'
+}
+
+response = requests.get(
+    'https://api.waveassist.io/v1/data/your_project_id/your_key',
+    headers=headers
+)
+
+data = response.json()
+```

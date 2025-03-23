@@ -1,0 +1,109 @@
+---
+title: 'JSON Data Type'
+description: 'Working with JSON data in WaveAssist'
+---
+
+# JSON Data Type
+
+Learn how to work with JSON (dictionary and list) data in WaveAssist.
+
+## Overview
+
+WaveAssist supports storing and retrieving JSON-compatible Python objects (dictionaries and lists).
+
+## Working with JSON Data
+
+```python
+import waveassist
+
+# Store a dictionary
+config = {
+    "app_name": "MyApp",
+    "version": "1.0.0",
+    "settings": {
+        "debug": True,
+        "max_retries": 3
+    }
+}
+waveassist.store_data("app_config", config)
+
+# Store a list
+items = [
+    {"id": 1, "name": "Item 1"},
+    {"id": 2, "name": "Item 2"}
+]
+waveassist.store_data("item_list", items)
+```
+
+## Supported Data Types
+
+- Dictionaries
+- Lists
+- Strings
+- Numbers (int, float)
+- Boolean
+- Null
+- Nested structures
+
+## JSON Limitations
+
+- Maximum size: 5MB
+- Must be JSON-serializable
+- Keys must be strings
+- No support for custom objects
+
+## Best Practices
+
+1. Validate JSON structure before storing
+2. Use consistent key naming
+3. Handle nested data carefully
+4. Consider data organization
+
+## Example Use Cases
+
+```python
+# Configuration settings
+settings = {
+    "database": {
+        "host": "localhost",
+        "port": 5432,
+        "credentials": {
+            "username": "user",
+            "password": "pass"
+        }
+    },
+    "api": {
+        "endpoint": "https://api.example.com",
+        "timeout": 30
+    }
+}
+waveassist.store_data("settings", settings)
+
+# Nested data structures
+project = {
+    "name": "Project X",
+    "team": ["Alice", "Bob", "Charlie"],
+    "milestones": [
+        {
+            "name": "Phase 1",
+            "due_date": "2025-06-30",
+            "completed": False
+        }
+    ]
+}
+waveassist.store_data("project_info", project)
+```
+
+## Error Handling
+
+```python
+try:
+    # Attempting to store non-JSON-serializable data
+    class CustomClass:
+        pass
+    
+    invalid_data = {"obj": CustomClass()}
+    waveassist.store_data("invalid", invalid_data)
+except waveassist.SerializationError:
+    print("Data is not JSON-serializable")
+```

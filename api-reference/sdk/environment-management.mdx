@@ -1,0 +1,78 @@
+---
+title: 'Environment Management'
+description: 'How to manage environments in the WaveAssist SDK'
+---
+
+# Environment Management
+
+Learn how to work with different environments in your WaveAssist projects.
+
+## Understanding Environments
+
+Environments allow you to separate your data and workflows across different contexts (e.g., development, staging, production).
+
+## Setting the Environment
+
+```python
+import waveassist
+
+# Initialize with specific environment
+waveassist.init(
+    token="your-api-token",
+    project_key="your-project-id",
+    environment_key="production"
+)
+
+# Or switch environment later
+waveassist.set_environment("staging")
+```
+
+## Environment-Specific Operations
+
+```python
+# Store data in specific environment
+waveassist.store_data(
+    "config",
+    {"debug": True},
+    environment="development"
+)
+
+# Fetch data from specific environment
+prod_config = waveassist.fetch_data(
+    "config",
+    environment="production"
+)
+```
+
+## Environment Functions
+
+| Function | Description |
+|----------|-------------|
+| set_environment(key) | Switch to a different environment |
+| get_current_environment() | Get the current environment key |
+| list_environments() | List all available environments |
+
+## Best Practices
+
+1. Use consistent environment names
+2. Keep production data separate
+3. Use environment-specific configurations
+4. Handle environment switching carefully
+
+## Example: Environment Management
+
+```python
+import waveassist
+
+# Initialize with default environment
+waveassist.init(token="token", project_key="project")
+
+# List all environments
+environments = waveassist.list_environments()
+
+# Work with different environments
+for env in ["development", "staging", "production"]:
+    waveassist.set_environment(env)
+    config = waveassist.fetch_data("config")
+    print(f"{env} config:", config)
+```

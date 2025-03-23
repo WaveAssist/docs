@@ -1,0 +1,69 @@
+---
+title: 'String Data Type'
+description: 'Working with string data in WaveAssist'
+---
+
+# String Data Type
+
+Learn how to work with string data in WaveAssist.
+
+## Overview
+
+Strings are the most basic data type in WaveAssist. They can store text data, configuration values, or any other string-based information.
+
+## Storing Strings
+
+```python
+import waveassist
+
+# Store a simple string
+waveassist.store_data("greeting", "Hello, World!")
+
+# Store a multiline string
+waveassist.store_data("message", """
+This is a
+multiline
+message
+""")
+```
+
+## String Limitations
+
+- Maximum length: 1MB
+- Encoding: UTF-8
+- Supports all Unicode characters
+
+## Best Practices
+
+1. Use descriptive keys
+2. Consider string encoding
+3. Handle special characters properly
+4. Validate string length before storing
+
+## Example Use Cases
+
+```python
+# Configuration values
+waveassist.store_data("api_endpoint", "https://api.example.com")
+
+# User messages
+waveassist.store_data("welcome_message", "Welcome to our service!")
+
+# Status information
+waveassist.store_data("status", "active")
+
+# JSON strings
+import json
+config_json = json.dumps({"debug": True, "mode": "test"})
+waveassist.store_data("config_string", config_json)
+```
+
+## Error Handling
+
+```python
+try:
+    very_long_string = "x" * (2 * 1024 * 1024)  # 2MB
+    waveassist.store_data("too_long", very_long_string)
+except waveassist.DataSizeError:
+    print("String exceeds maximum size limit")
+```

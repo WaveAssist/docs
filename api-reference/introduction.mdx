@@ -51,6 +51,15 @@ wa = WaveAssist(project_key='your_project_key')
 # Get and set variables
 value = wa.get('variable_name')
 wa.set('variable_name', new_value)
+
+# Deploy project
+wa.deploy()
+
+# Run a specific node
+wa.run_node('node_key', parameters={})
+
+# View logs
+logs = wa.get_logs('node_key')
 ```
 
 ## Base URL

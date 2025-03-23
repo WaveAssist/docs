@@ -1,0 +1,91 @@
+---
+title: 'Run DAG'
+description: 'API endpoint for executing a DAG workflow'
+---
+
+# Run DAG API
+
+This endpoint allows you to trigger the execution of a DAG (Directed Acyclic Graph) workflow in your WaveAssist project.
+
+## Endpoint
+
+```bash
+POST /api/v1/workflow/{project_id}/run
+```
+
+## Authentication
+
+Include your API token in the request header:
+
+```bash
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+## Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| project_id | string | Your project identifier |
+
+## Request Body
+
+```json
+{
+  "dag_id": "your_dag_id",
+  "parameters": {
+    "param1": "value1",
+    "param2": "value2"
+  },
+  "environment": "production"  // optional
+}
+```
+
+## Response
+
+### Success Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "run_id": "workflow_run_id",
+    "status": "started",
+    "started_at": "2025-03-23T14:00:00Z"
+  }
+}
+```
+
+### Error Response
+
+```json
+{
+  "status": "error",
+  "message": "Error message description"
+}
+```
+
+## Example Usage
+
+```python
+import requests
+
+headers = {
+    'Authorization': 'Bearer YOUR_API_TOKEN'
+}
+
+workflow_data = {
+    'dag_id': 'your_dag_id',
+    'parameters': {
+        'param1': 'value1',
+        'param2': 'value2'
+    }
+}
+
+response = requests.post(
+    'https://api.waveassist.io/v1/workflow/your_project_id/run',
+    headers=headers,
+    json=workflow_data
+)
+
+result = response.json()
+```

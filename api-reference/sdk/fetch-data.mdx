@@ -1,0 +1,69 @@
+---
+title: 'Fetch Data'
+description: 'How to retrieve data using the WaveAssist SDK'
+---
+
+# Fetch Data
+
+Learn how to retrieve data using the WaveAssist SDK.
+
+## Basic Usage
+
+```python
+import waveassist
+
+# Fetch a string
+message = waveassist.fetch_data("welcome_message")
+print(message)  # "Hello, World!"
+
+# Fetch a dictionary
+user_data = waveassist.fetch_data("user_profile")
+print(user_data["name"])  # "Alice"
+```
+
+## Fetching DataFrames
+
+```python
+import waveassist
+
+# Fetch a DataFrame
+df = waveassist.fetch_data("user_scores")
+print(df.head())  # Displays the DataFrame
+```
+
+## Function Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| key | string | Yes | Key of the data to retrieve |
+| environment | string | No | Override default environment |
+
+## Error Handling
+
+```python
+try:
+    data = waveassist.fetch_data("missing_key")
+except waveassist.KeyNotFoundError:
+    print("Data not found")
+except waveassist.FetchError as e:
+    print(f"Failed to fetch data: {e}")
+```
+
+## Type Handling
+
+The SDK automatically handles type conversion:
+
+```python
+# Original data types are preserved
+string_data = waveassist.fetch_data("text_key")  # returns str
+number_data = waveassist.fetch_data("number_key")  # returns int/float
+dict_data = waveassist.fetch_data("dict_key")  # returns dict
+df_data = waveassist.fetch_data("dataframe_key")  # returns pd.DataFrame
+```
+
+## Best Practices
+
+1. Always handle potential errors
+2. Check data types when necessary
+3. Use appropriate error handling for your use case
+4. Consider caching frequently accessed data

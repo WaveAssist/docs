@@ -1,0 +1,104 @@
+---
+title: 'Deploy'
+description: 'API endpoint for deploying WaveAssist resources'
+---
+
+# Deploy API
+
+This endpoint allows you to deploy resources (nodes, workflows, configurations) to your WaveAssist project.
+
+## Endpoint
+
+```bash
+POST /api/v1/deploy/{project_id}
+```
+
+## Authentication
+
+Include your API token in the request header:
+
+```bash
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+## Path Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| project_id | string | Your project identifier |
+
+## Request Body
+
+```json
+{
+  "resources": [
+    {
+      "type": "node|workflow|config",
+      "name": "resource_name",
+      "content": {},
+      "environment": "production"  // optional
+    }
+  ]
+}
+```
+
+## Response
+
+### Success Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "deployment_id": "deployment_id",
+    "status": "completed",
+    "deployed_at": "2025-03-23T14:00:00Z",
+    "resources": [
+      {
+        "type": "node",
+        "name": "resource_name",
+        "status": "deployed"
+      }
+    ]
+  }
+}
+```
+
+### Error Response
+
+```json
+{
+  "status": "error",
+  "message": "Error message description"
+}
+```
+
+## Example Usage
+
+```python
+import requests
+
+headers = {
+    'Authorization': 'Bearer YOUR_API_TOKEN'
+}
+
+deployment_data = {
+    'resources': [
+        {
+            'type': 'node',
+            'name': 'my_node',
+            'content': {
+                # node configuration
+            }
+        }
+    ]
+}
+
+response = requests.post(
+    'https://api.waveassist.io/v1/deploy/your_project_id',
+    headers=headers,
+    json=deployment_data
+)
+
+result = response.json()
+```

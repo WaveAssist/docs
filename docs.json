@@ -34,21 +34,32 @@
         ]
       },
       {
+        "tab": "SDK Reference",
+        "pages": [
+          "api-reference/sdk/initialization",
+          "api-reference/sdk/store-data",
+          "api-reference/sdk/fetch-data",
+          "api-reference/sdk/environment-management"
+        ]
+      },
+      {
         "tab": "API Reference",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "REST API",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/endpoints/get-data",
+              "api-reference/endpoints/set-data",
+              "api-reference/endpoints/run-dag",
+              "api-reference/endpoints/deploy"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Data Types",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/data-types/string",
+              "api-reference/data-types/dataframe",
+              "api-reference/data-types/json"
             ]
           }
         ]
