@@ -3,28 +3,57 @@ title: 'Environments'
 description: 'Managing different environments in WaveAssist'
 ---
 
-## Environment Management
+# Environment Management
 
-WaveAssist supports multiple environments to help you develop, test, and deploy your AI workflows securely.
+WaveAssist supports multiple environments to help you build, test, and run your workflows in isolated, context-specific setups.
 
-### Environment Types
+Environments let you:
+- Reuse the same **project code, nodes, and structure**
+- Swap out **credentials, API keys, or user-specific settings**
+- Separate **development**, **staging**, and **production** configurations
+
+---
+
+## Common Environment Types
 
 <CardGroup>
   <Card title="Development" icon="code">
-    For local development and testing
+    For experimenting and debugging workflows
   </Card>
   <Card title="Staging" icon="flask">
-    For integration testing
+    For testing workflows before going live
   </Card>
   <Card title="Production" icon="rocket">
-    For live workflows
+    For executing workflows in real-world use
   </Card>
   <Card title="Custom" icon="gear">
-    For specialized needs
+    For client-specific or account-based contexts
   </Card>
 </CardGroup>
 
-## Environment Configuration
+---
+
+## Real-World Example
+
+Imagine you have a project that uses OpenAI to generate content. You want:
+
+- In **Dev**, to use a test OpenAI key under your account
+- In **Prod**, to use a client’s OpenAI key under a different account
+
+You don’t want to modify your project code or node logic — just swap the environment.
+
+---
+
+## How It Works
+
+Each environment in WaveAssist:
+- Shares the **same project code and nodes**
+- Has its own set of **environment variables** (like `OPENAI_API_KEY`, `SLACK_WEBHOOK_URL`, etc.)
+- Can be selected when running workflows manually or via triggers
+
+---
+
+## Using Environments in Code
 
 ```python
 from waveassist import WAHelper
@@ -32,40 +61,34 @@ from waveassist import WAHelper
 # Initialize with environment
 helper = WAHelper(
     project_key='your-project-key',
-    environment='development'
+    environment='production'  # or 'development', 'staging', etc.
 )
 
-# Set environment variables
-helper.set_env_var('API_ENDPOINT', 'https://api.dev.example.com')
-helper.set_env_var('MODEL_VERSION', 'v2.0')
-
-# Get environment settings
-config = helper.get_env_config()
+# Fetch API key based on current environment
+openai_key = helper.fetch_data("OPENAI_API_KEY")
 ```
 
-## Environment Variables
+This lets you deploy the same codebase in multiple contexts without changing a single line of logic.
 
-```json
-{
-  "environment": "staging",
-  "variables": {
-    "API_ENDPOINT": "https://api.staging.example.com",
-    "MODEL_VERSION": "v2.1",
-    "DEBUG_MODE": true,
-    "MAX_RETRIES": 3
-  },
-  "resources": {
-    "memory_limit": "4Gi",
-    "cpu_limit": "2"
-  }
-}
-```
+---
+
+## Variable Management
+
+To assign environment-specific values:
+
+1. Go to the **Variables** tab
+2. Add a variable (e.g., `OPENAI_API_KEY`)
+3. Assign different values for each environment (Dev, Staging, Prod)
+
+---
 
 ## Best Practices
 
-1. **Isolation**: Keep environments completely isolated
-2. **Configuration**: Use environment-specific configurations
-3. **Testing**: Test thoroughly in staging before production
-4. **Monitoring**: Set up monitoring for each environment
-5. **Access Control**: Implement proper access controls
-6. **Documentation**: Document environment differences
+- Keep variable names consistent across environments
+- Avoid hardcoding secrets in your nodes
+- Use environment-specific logging if needed (e.g., log to different files)
+
+---
+
+WaveAssist environments make it easy to scale your workflows from solo dev testing to enterprise-ready automation — securely and safely.
+

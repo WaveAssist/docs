@@ -3,147 +3,89 @@ title: 'Quickstart'
 description: 'Get started with WaveAssist in minutes'
 ---
 
-## Getting Started with WaveAssist
+## Build Your First Workflow: Fortune of the Day
 
-WaveAssist offers two powerful ways to work with your AI workflows: through our web dashboard and via local development using our Python SDK.
+Let’s build a simple, fun workflow that shows how WaveAssist works — no setup, no APIs, just Python logic.
 
-### Dashboard Development
+**Goal**: Generate a daily fortune and log it.
 
-<AccordionGroup>
-  <Accordion icon="browser" title="Create Your First Project">
-    1. Sign up at [WaveAssist Dashboard](https://app.waveassist.io)
-    2. Click the "Add Project" card
-    3. Fill in your project details
-    4. Access your project key from the project settings
+---
 
-    <Frame caption="Create new project">
-      <img
-        className="rounded-lg shadow-lg dark:shadow-neutral-900"
-        src="/images/create_project.png"
-        alt="WaveAssist Project Creation"
-      />
-    </Frame>
-  </Accordion>
+### Step 1: Create a Project
 
-  <Accordion icon="code" title="Edit Node Code">
-    Each node in your workflow can be edited directly in the dashboard's code editor:
+1. Log in to [WaveAssist Dashboard](https://app.waveassist.io)
+2. Click **Add Project**
+3. Name it something like `daily-fortune`
 
-    <Frame caption="Dashboard Code Editor">
-      <img
-        className="rounded-lg shadow-lg dark:shadow-neutral-900 border border-neutral-200 dark:border-neutral-700"
-        src="/images/code_editor.png"
-        alt="WaveAssist Code Editor"
-      />
-    </Frame>
+<Frame caption="Create new project">
+  <img src="/images/create_project.png" alt="Create new project" />
+</Frame>
 
-    The editor provides:
-    - Syntax highlighting
-    - Code completion
-    - Real-time error checking
-    - Direct node execution
-  </Accordion>
+---
 
-  <Accordion icon="gear" title="Node Configuration">
-    Configure node settings directly in the dashboard:
-    ```json
-    {
-      "name": "DataProcessor",
-      "type": "processing",
-      "schedule": "every 12 hours",
-      "inputs": ["raw_data"],
-      "outputs": ["processed_data"]
-    }
-    ```
-  </Accordion>
-</AccordionGroup>
+### Step 2: Add a Node to Choose a Fortune
 
-### Local Development
-
-<AccordionGroup>
-  <Accordion icon="terminal" title="Install WaveAssist SDK">
-    Install our Python package to start developing locally:
-    ```bash
-    pip install waveassist
-    ```
-  </Accordion>
-
-  <Accordion icon="puzzle" title="Initialize WAHelper">
-    Connect to your project using the WAHelper:
-    ```python
-    from waveassist import WAHelper
-
-    # Initialize with your project key
-    helper = WAHelper('your-project-key')
-    ```
-  </Accordion>
-
-  <Accordion icon="code" title="Node Development">
-    Create and manage nodes programmatically:
-    ```python
-    # Create a custom node
-    @helper.node(type=NodeType.PROCESSOR)
-    def process_data(input_data):
-        # Your processing logic here
-        return processed_data
-
-    # Schedule node execution
-    helper.schedule_node('process_data', interval='12h')
-    ```
-  </Accordion>
-</AccordionGroup>
-
-## Working with Data
+Create a Python node named `choose_fortune.py` with the following code:
 
 ```python
-# Example workflow with data processing
-from waveassist import WAHelper
+import random
 
-# Initialize helper
-helper = WAHelper('your-project-key')
-
-# Configure data processing
-helper.set_option('display.max_columns', None)
-
-# Make API requests
-url = 'https://api.example.com/data'
-headers = {
-    'Accept': 'application/json',
-    'Connection': 'keep-alive'
-}
-
-# Process data
-response = helper.process_data(url, headers)
+def run():
+    fortunes = [
+        "Today is your lucky day!",
+        "Curiosity leads to breakthroughs.",
+        "Take a deep breath and smile.",
+        "Be bold. Fortune favors the brave!"
+    ]
+    return random.choice(fortunes)
 ```
 
-## Core Features
+---
 
-<CardGroup>
-  <Card title="Node Management" icon="diagram-project">
-    Create and manage workflow nodes
-  </Card>
-  <Card title="Data Operations" icon="database">
-    Handle data inputs and outputs
-  </Card>
-  <Card title="Scheduling" icon="clock">
-    Automate workflow execution
-  </Card>
-  <Card title="Monitoring" icon="chart-line">
-    Track node performance
-  </Card>
-</CardGroup>
+### Step 3: Add a Node to Log It
 
-## Best Practices
+Now create a second node called `log_fortune.py`:
 
-1. **Version Control**: Keep your node code in version control
-2. **Testing**: Test nodes locally before deploying
-3. **Security**: Never commit project keys to code
-4. **Modularity**: Break complex workflows into smaller nodes
+```python
+def run(inputs):
+    print("🧿 Your fortune:", inputs)
+```
 
-<Note>
-Remember to keep your project key secure and never commit it to version control.
-You can manage your keys in the project settings section of the dashboard.
-</Note>
+---
 
-<Note>
-For more advanced scenarios and API details, check our [API Reference](/api-reference/introduction).
-</Note>
+### Step 4: Connect the Nodes
+
+1. Open the Workflow builder
+2. Connect `choose_fortune` → `log_fortune`
+
+<Frame caption="Edit and Connect Nodes">
+  <img src="/images/code_editor.png" alt="Code Editor View" />
+</Frame>
+
+---
+
+### Step 5: Run It!
+
+Click **Run Workflow** — and see your fortune appear in the logs!
+
+<Frame caption="Workflow Log Output">
+  <img src="/images/project_details.png" alt="Project details and logs" />
+</Frame>
+
+---
+
+## What's Next?
+
+Want to take your project further?
+
+Check out the full guide: [Expand Your Fortune Project →](./whats-next)
+
+You'll learn how to:
+- Send the fortune via **email**
+- Post to **Slack**
+- Add logic based on the **type** of message (funny, motivational, etc.)
+- Generate fortunes with **OpenAI**
+
+---
+
+💡 Want more examples? Visit [github.com/WaveAssist/waveassist](https://github.com/WaveAssist/waveassist)

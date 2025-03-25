@@ -1,119 +1,70 @@
 ---
-title: Getting Started 
-description: "Learn how to create and manage your AI workflow projects with WaveAssist"
+title: Getting Started
+description: "Understand what WaveAssist is and how it can help you automate workflows with ease."
 ---
 
 # Welcome to WaveAssist
 
-WaveAssist is a powerful platform that helps you create, manage, and automate AI workflows. This guide will help you get started with creating your first project and understanding the dashboard.
+WaveAssist helps you create, run, and automate Python-based workflows — whether it's AI-driven tasks, backend logic, data pipelines, or automations.
 
-## Dashboard Overview
+### What Can You Build?
 
-The WaveAssist dashboard is organized into several key sections:
+- Automate daily tasks like sending emails or reports
+- Build bots that connect to GitHub, Notion, or Slack
+- Use AI to summarize, generate, or process content
+- Run periodic background logic with zero infra hassle
+
+### Core Concepts
 
 <CardGroup cols={2}>
   <Card title="Nodes" icon="diagram-project">
-    Create and manage your workflow nodes
+    Python scripts that represent tasks (like “generate fortune” or “send email”)
+  </Card>
+  <Card title="Workflows" icon="arrows-split">
+    Link nodes together to run in sequence or in parallel
   </Card>
   <Card title="Variables" icon="code">
-    Manage project variables and configurations
+    Store credentials or inputs securely across workflows
   </Card>
-  <Card title="Packages" icon="box">
-    Install and manage Python packages
-  </Card>
-  <Card title="Environments" icon="server">
-    Configure different deployment environments
+  <Card title="Triggers" icon="clock">
+    Schedule or automatically run workflows based on events
   </Card>
 </CardGroup>
 
-## Creating Your First Project
+---
 
-1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io)
-2. Click the "Add Project" card to create a new project
-3. Fill in your project details
-4. Navigate to the Nodes section to start building your workflow
+## 💡 Benefits for Developers and Teams
 
-<Frame caption="Create new project">
-  <img
-    className="rounded-lg shadow-lg dark:shadow-neutral-900"
-    src="/images/create_project.png"
-    alt="WaveAssist Project Creation"
-  />
+WaveAssist is built for modern builders who want to automate workflows without worrying about infrastructure.
+
+### 🔧 For Developers:
+- Write simple Python functions as modular nodes
+- Easily connect logic in sequence or parallel
+- Test and debug directly from the dashboard
+- Scale up with variables, triggers, and environments
+
+### For Teams:
+- Collaborate in shared projects
+- Monitor runs, logs, and results in real-time
+- Keep logic version-controlled and modular
+- Integrate with APIs, CRON jobs, webhooks, or LLMs
+
+Whether you're a solo hacker or an engineering team — WaveAssist adapts to your style of building.
+
+---
+
+## How It Works: A Simple Diagram
+
+Here's a basic overview of how WaveAssist runs your workflow:
+
+<Frame caption="Basic Workflow Diagram (Conceptual)">
+  <img src="/images/basic_workflow_diagram.png" alt="Workflow diagram" />
 </Frame>
 
-### Project Details
-When creating a new project, you'll need to provide:
-- Project name (e.g., "FirstProject", "WaveAssist")
-- Project key (e.g., "fp", "wa")
-- Description (optional)
+This modular design lets you build simple scripts or complex systems — all in the same tool.
 
-<Frame caption="Project details configuration">
-  <img
-    className="rounded-lg shadow-lg dark:shadow-neutral-900 border border-neutral-200 dark:border-neutral-700"
-    src="/images/project_details.png"
-    alt="Project Details Configuration"
-  />
-</Frame>
+---
 
-Once created, your project will appear in the dashboard alongside other projects, where you can easily access and manage it.
+## What’s Next?
 
-## Managing Nodes
-
-In the Nodes section, you can:
-
-### Create a Node
-Click the '+' button in the top-right corner to create a new node. Each node represents a specific task in your workflow.
-
-### Configure Node Settings
-For each node, you can configure:
-- **Name**: A unique identifier for your node
-- **Status**: Enable/disable the node
-- **Schedule**: Set intervals for automatic execution
-  - Options include:
-    - Every 12 hours
-    - Every 12 days
-    - Cron expressions for custom schedules
-
-### Node Actions
-Each node has three main actions:
-- **View Code**: Edit the node's implementation
-- **Edit**: Modify node configuration
-- **Run**: Execute the node manually
-
-## Example Node Types
-
-Here are some common node types you can create:
-
-<CardGroup cols={2}>
-  <Card title="Data Processing" icon="database">
-    Example: `ConvertToText` - Converts data between formats
-  </Card>
-  <Card title="Image Processing" icon="image">
-    Example: `Generate Image Segments` - Process and analyze images
-  </Card>
-  <Card title="AI Tasks" icon="robot">
-    Example: `Generate GPT Images` - AI-powered image generation
-  </Card>
-  <Card title="Management" icon="gears">
-    Example: `Manage GPT Woke` - System management tasks
-  </Card>
-</CardGroup>
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card
-    title="API Reference"
-    icon="code"
-    href="/api-reference/introduction"
-  >
-    Explore our API documentation to integrate WaveAssist
-  </Card>
-  <Card
-    title="Python SDK"
-    icon="python"
-    href="/api-reference/sdk/initialization"
-  >
-    Learn how to use our Python SDK for automation
-  </Card>
-</CardGroup>
+Head over to the [Quickstart Guide](./quickstart) to build your first project in minutes using our Fortune Generator example!

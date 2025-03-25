@@ -7,7 +7,7 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.ico",
+  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -18,6 +18,7 @@
             "pages": [
               "introduction",
               "quickstart",
+              "whats-next",
               "faq"
             ]
           },
@@ -27,8 +28,7 @@
               "core-concepts/nodes",
               "core-concepts/workflows",
               "core-concepts/data-management",
-              "core-concepts/environments",
-              "core-concepts/security"
+              "core-concepts/environments"
             ]
           }
         ]
@@ -85,7 +85,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/waveassist",
+      "x": "https://x.com/waveassist_io",
       "github": "https://github.com/waveassist",
       "linkedin": "https://linkedin.com/company/waveassist"
     }

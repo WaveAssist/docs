@@ -1,0 +1,99 @@
+---
+title: What's Next
+description: Ideas to expand your Fortune of the Day project with WaveAssist
+---
+
+# What’s Next: Expand Your Fortune of the Day Project
+
+You've built your first working workflow — congrats! 🎉  
+Now let’s explore how you can grow it into a full automation system.
+
+---
+
+## 1. Send Your Fortune via Email
+
+Add a new node `send_email.py`:
+
+```python
+import smtplib
+from email.message import EmailMessage
+
+def run(inputs):
+    msg = EmailMessage()
+    msg.set_content(f"Your Fortune: {inputs}")
+    msg["Subject"] = "Your Daily Fortune"
+    msg["From"] = "you@example.com"
+    msg["To"] = "your@email.com"
+
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        server.starttls()
+        server.login("you@example.com", "your-password")
+        server.send_message(msg)
+```
+
+Store credentials as variables in the dashboard.
+
+---
+
+## 2. Use AI to Generate Fortunes
+
+Replace the static list with an OpenAI-generated response:
+
+```python
+import openai
+
+def run():
+    openai.api_key = "your-api-key"
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": "Give me a short daily fortune"}]
+    )
+    return response.choices[0].message.content.strip()
+```
+
+---
+
+## 3. Save Fortunes to History
+
+Create a `save_to_file.py` node:
+
+```python
+def run(inputs):
+    with open("/data/fortune_history.txt", "a") as f:
+        f.write(inputs + "\n")
+```
+
+Use this to build a log of all your daily messages.
+
+---
+
+## 4. Automate with a Trigger
+
+Use a **Scheduler Trigger** to run the workflow daily at 9 AM.
+
+- Go to the **Triggers** tab
+- Choose **Schedule**
+- Set the time and link to your workflow
+
+---
+
+## 5. Add Conditional Logic
+
+Introduce branching based on content:
+
+- If the fortune includes “lucky”, post to Slack
+- Otherwise, just email it
+
+This introduces **parallel paths** in your workflow — making it dynamic and smarter.
+
+---
+
+## Keep Building
+
+From this foundation, you can build:
+- A Slack bot
+- A fortune-sharing web page
+- An SMS notifier
+- A team-specific morale booster
+
+Explore more in [Core Concepts](../core-concepts/workflows) or check out other [Examples](https://github.com/WaveAssist/waveassist).
