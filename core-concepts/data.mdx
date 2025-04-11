@@ -1,0 +1,51 @@
+---
+title: "Data"
+description: "Learn about managing data and variables in WaveAssist."
+---
+
+The **Data** section in WaveAssist allows you to manage variables and view data used in your workflows. You can create, update, and delete variables, as well as inspect and manage data directly from the dashboard.
+
+## Managing Variables
+
+Variables are key-value pairs that can be used across your nodes and workflows. They can be dynamically updated or manually set.
+
+### Key Features
+- **Create Variables**: Add new variables with a specific key and data type.
+- **Edit Variables**: Update the value or data type of existing variables.
+- **Delete Variables**: Remove variables that are no longer needed.
+
+### Data Types
+WaveAssist supports the following data types for variables:
+
+#### `json`
+- Use the `json` data type to store structured data, such as objects or arrays.
+- Example:
+  ```json
+  {
+    "key": "value",
+    "list": [1, 2, 3]
+  }
+  ```
+
+#### `string`
+- Use the `string` data type to store plain text or simple values.
+- Example:
+  ```plaintext
+  "This is a string value"
+  ```
+
+## Viewing and Managing Data
+
+The **Data Viewer** allows you to inspect and manage the data used in your workflows. You can filter, view, and export data directly from the dashboard.
+
+### Key Features
+- **View Data**: Inspect the data stored in your project.
+- **Filter Data**: Apply filters to narrow down the data you want to view.
+- **Export Data**: Download data for external use.
+
+## Managing DataFrames
+
+For more complex data structures like DataFrames, we recommend using the WaveAssist Python SDK. The SDK provides a convenient interface to fetch, manipulate, and store DataFrames.
+
+
+By combining the dashboard and the Python SDK, you can efficiently manage all your data needs in WaveAssist.

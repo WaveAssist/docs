@@ -3,9 +3,7 @@ title: 'Store Data'
 description: 'How to store data using the WaveAssist SDK'
 ---
 
-# Store Data
-
-Learn how to store different types of data using the WaveAssist SDK.
+Learn how to **store different types of data** using the WaveAssist SDK.
 
 ## Basic Usage
 
@@ -14,9 +12,6 @@ import waveassist
 
 # Store a simple string
 waveassist.store_data("welcome_message", "Hello, World!")
-
-# Store a number
-waveassist.store_data("user_count", 42)
 
 # Store a dictionary
 user_data = {"name": "Alice", "age": 30}
@@ -47,20 +42,4 @@ waveassist.store_data("user_scores", df)
 | value | any | Yes | Data to store (string, number, dict, DataFrame) |
 | environment | string | No | Override default environment |
 
-## Error Handling
 
-```python
-try:
-    waveassist.store_data("large_data", huge_dataset)
-except waveassist.DataSizeError:
-    print("Data exceeds size limit")
-except waveassist.StorageError as e:
-    print(f"Failed to store data: {e}")
-```
-
-## Best Practices
-
-1. Use descriptive keys for your data
-2. Handle errors appropriately
-3. Consider data size limitations
-4. Use appropriate data types for your use case

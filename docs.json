@@ -26,9 +26,11 @@
             "group": "Core Concepts",
             "pages": [
               "core-concepts/nodes",
-              "core-concepts/workflows",
-              "core-concepts/data-management",
-              "core-concepts/environments"
+              "core-concepts/data",
+              "core-concepts/packages",
+              "core-concepts/environments",
+              "core-concepts/deployments",
+              "core-concepts/logs"
             ]
           }
         ]
@@ -40,28 +42,6 @@
           "api-reference/sdk/store-data",
           "api-reference/sdk/fetch-data",
           "api-reference/sdk/environment-management"
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "REST API",
-            "pages": [
-              "api-reference/endpoints/get-data",
-              "api-reference/endpoints/set-data",
-              "api-reference/endpoints/run-dag",
-              "api-reference/endpoints/deploy"
-            ]
-          },
-          {
-            "group": "Data Types",
-            "pages": [
-              "api-reference/data-types/string",
-              "api-reference/data-types/dataframe",
-              "api-reference/data-types/json"
-            ]
-          }
         ]
       }
     ]

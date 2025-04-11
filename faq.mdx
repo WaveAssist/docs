@@ -3,23 +3,27 @@ title: 'Frequently Asked Questions'
 description: 'Common questions about using WaveAssist'
 ---
 
+Find answers to common questions about WaveAssist, including workflows, nodes, data management, and security.
+
+---
+
 ## General Questions
 
 <AccordionGroup>
   <Accordion icon="question" title="What is WaveAssist?">
-    WaveAssist is a powerful platform for creating and managing AI workflows. It allows you to:
-    - Create and manage projects via a web dashboard
-    - Build automated workflows using nodes
-    - Process data using Python scripts
-    - Schedule automated tasks
-    - Manage deployments and environments
+    WaveAssist is a powerful platform for creating and managing Python-based workflows. It allows you to:
+    - Automate tasks using nodes
+    - Manage data securely with dedicated MongoDB databases
+    - Schedule workflows with triggers or cron jobs
+    - Deploy and monitor workflows in live environments
+    - Integrate with APIs, AI models, and external tools
   </Accordion>
 
   <Accordion icon="key" title="How do I get my project key?">
-    1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io)
-    2. Select your project
-    3. Go to project settings
-    4. Find your project key in the "API Keys" section
+    1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io).
+    2. Select your project.
+    3. Go to **Project Settings**.
+    4. Find your project key in the **API Keys** section.
     
     **Important**: Keep your project key secure and never share it publicly.
   </Accordion>
@@ -35,14 +39,16 @@ description: 'Common questions about using WaveAssist'
   </Accordion>
 </AccordionGroup>
 
+---
+
 ## Nodes and Workflows
 
 <AccordionGroup>
   <Accordion icon="diagram-project" title="What are nodes in WaveAssist?">
     Nodes are the building blocks of your workflows. Each node:
-    - Performs a specific task
+    - Performs a specific task (e.g., data processing, API integration)
     - Can process inputs and generate outputs
-    - Can be scheduled to run automatically
+    - Can be scheduled to run automatically or triggered manually
     - Can be connected to other nodes to create complex workflows
   </Accordion>
 
@@ -56,94 +62,81 @@ description: 'Common questions about using WaveAssist'
     You can set schedules either through the dashboard or using the Python SDK.
   </Accordion>
 
-  <Accordion icon="gear" title="What types of nodes can I create?">
-    WaveAssist supports various node types:
-    - Data processing nodes
-    - API integration nodes
-    - Machine learning nodes
-    - Custom nodes with your own logic
-    
-    Each type can be customized with specific inputs, outputs, and configurations.
+  
+
+  <Accordion icon="play" title="How do I run a workflow?">
+    To run a workflow:
+    1. Ensure your nodes are connected using the **Starting Node** and **Run After Nodes** options.
+    2. Press the **Play** button on the **Starting Node** from the project dashboard.
+    3. Monitor the execution in the **Logs** section.
   </Accordion>
 </AccordionGroup>
+
+---
 
 ## Data Management
 
 <AccordionGroup>
   <Accordion icon="database" title="How does data handling work?">
     WaveAssist provides several ways to handle data:
-    - Upload files directly through the dashboard
-    - Use the Python SDK for programmatic data access
-    - Connect to external data sources
-    - Store and retrieve data using data keys
+    - Upload files directly through the dashboard.
+    - Use the Python SDK for programmatic data access.
+    - Connect to external data sources like APIs or databases.
+    - Store and retrieve data using data keys in the **Data** tab.
   </Accordion>
 
-  <Accordion icon="shield" title="Is my data secure?">
-    Yes, WaveAssist implements several security measures:
-    - Encrypted data transmission
-    - Secure project isolation
-    - Access control through project keys
-    - Environment-specific configurations
+  <Accordion icon="lock" title="How does WaveAssist ensure my data is secure?">
+    Yes, WaveAssist ensures your data is secure through the following measures:
+    - **Encrypted Data Transmission**: All data transmitted between your browser, the WaveAssist platform, and external integrations is encrypted using industry-standard protocols.
+    - **Dedicated MongoDB Database**: Each user is allocated a dedicated MongoDB database to ensure complete data isolation and protection.
+    - **Secure Project Isolation**: Projects are securely isolated to prevent unauthorized access or interference between different workflows.
+    - **Access Control with Project Keys**: Each project is protected with unique project keys, ensuring only authorized users can access or modify project data.
+    - **Environment-Specific Configurations**: Data is managed securely across different environments (e.g., development, staging, production) with strict access controls.
+    
+    These measures ensure that your data remains private, secure, and accessible only to you and your authorized team members.
   </Accordion>
 </AccordionGroup>
+
+---
+
+## Advanced Features
+
+<AccordionGroup>
+  <Accordion icon="robot" title="Can I use AI models in my workflows?">
+    Yes! WaveAssist supports integration with AI models like OpenAI and Anthropic. You can:
+    - Generate text or predictions using OpenAI's GPT models.
+    - Fetch API keys from the **Data** tab for secure integration.
+    - Use AI nodes to automate tasks like content generation, summarization, or classification.
+  </Accordion>
+
+  <Accordion icon="cloud" title="How do deployments work?">
+    Deployments allow you to run workflows in live environments. You can:
+    - Deploy workflows to production with a single click.
+    - Monitor deployments in real-time using the **Logs** section.
+    - Use environment-specific configurations for seamless transitions between development, staging, and production.
+  </Accordion>
+
+  <Accordion icon="sync" title="Can I integrate with external APIs?">
+    Yes, WaveAssist makes it easy to integrate with external APIs. You can:
+    - Use API integration nodes to fetch or send data.
+    - Store API keys securely in the **Data** tab.
+    - Write custom Python scripts to handle API requests and responses.
+  </Accordion>
+</AccordionGroup>
+
+---
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion icon="bug" title="Common node execution errors">
-    Common issues and solutions:
-    1. **Connection errors**
-       - Verify your project key
-       - Check network connectivity
-       - Ensure SDK is up to date
-    
-    2. **Runtime errors**
-       - Check node dependencies
-       - Verify input data format
-       - Review node logs
-    
-    3. **Scheduling issues**
-       - Confirm timezone settings
-       - Check node status
-       - Verify cron expressions
+  <Accordion icon="bug" title="Why is my node not running?">
+    If your node is not running:
+    - Ensure it is connected to the **Starting Node** or has a valid **Run After Nodes** configuration.
+    - Check the **Logs** section for error messages or debugging information.
+    - Verify that all required variables are set in the **Data** tab.
   </Accordion>
 
-  <Accordion icon="rotate" title="How do I update my nodes?">
-    To update existing nodes:
-    1. In the dashboard:
-       - Click the edit button
-       - Modify code or configuration
-       - Save changes
-    
-    2. Using SDK:
-       ```python
-       helper.update_node('node_name', new_code)
-       ```
+  <Accordion icon="help" title="Where can I find more examples?">
+    Visit the [WaveAssist GitHub Repository](https://github.com/WaveAssist/waveassist) for detailed examples and templates to help you get started.
   </Accordion>
 </AccordionGroup>
-
-## Best Practices
-
-<AccordionGroup>
-  <Accordion icon="star" title="Tips for efficient workflow design">
-    1. **Keep nodes focused**
-       - One primary task per node
-       - Clear input/output definitions
-    
-    2. **Use version control**
-       - Track code changes
-       - Maintain deployment history
-    
-    3. **Test thoroughly**
-       - Test locally first
-       - Use different environments
-    
-    4. **Monitor performance**
-       - Check execution logs
-       - Monitor resource usage
-  </Accordion>
-</AccordionGroup>
-
-<Note>
-Still have questions? Contact our support team or check our [API Reference](/api-reference/introduction) for detailed documentation.
-</Note>

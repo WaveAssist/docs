@@ -46,28 +46,4 @@ waveassist.init(
 | project_key | string | Yes | Your project identifier |
 | environment_key | string | No | Environment to use (defaults to project_key_default) |
 
-## Error Handling
 
-```python
-try:
-    waveassist.init(token="invalid-token", project_key="project-id")
-except waveassist.AuthenticationError:
-    print("Invalid authentication token")
-except waveassist.ConfigurationError:
-    print("Invalid configuration")
-```
-
-## Best Practices
-
-1. Never hardcode your API token in your code
-2. Use environment variables for sensitive information
-3. Initialize the SDK once at the start of your application
-
-```python
-import os
-from waveassist import init
-
-init(
-    token=os.environ.get('WAVEASSIST_TOKEN'),
-    project_key=os.environ.get('WAVEASSIST_PROJECT')
-)

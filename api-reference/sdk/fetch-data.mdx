@@ -3,9 +3,7 @@ title: 'Fetch Data'
 description: 'How to retrieve data using the WaveAssist SDK'
 ---
 
-# Fetch Data
-
-Learn how to retrieve data using the WaveAssist SDK.
+Learn how to **fetch data** using the WaveAssist SDK.
 
 ## Basic Usage
 
@@ -56,14 +54,7 @@ The SDK automatically handles type conversion:
 ```python
 # Original data types are preserved
 string_data = waveassist.fetch_data("text_key")  # returns str
-number_data = waveassist.fetch_data("number_key")  # returns int/float
 dict_data = waveassist.fetch_data("dict_key")  # returns dict
 df_data = waveassist.fetch_data("dataframe_key")  # returns pd.DataFrame
 ```
 
-## Best Practices
-
-1. Always handle potential errors
-2. Check data types when necessary
-3. Use appropriate error handling for your use case
-4. Consider caching frequently accessed data

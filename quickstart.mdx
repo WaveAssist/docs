@@ -3,89 +3,126 @@ title: 'Quickstart'
 description: 'Get started with WaveAssist in minutes'
 ---
 
-## Build Your First Workflow: Fortune of the Day
+# Quickstart: Build Your First Workflow
 
-Let’s build a simple, fun workflow that shows how WaveAssist works — no setup, no APIs, just Python logic.
-
-**Goal**: Generate a daily fortune and log it.
+Welcome to WaveAssist! Let’s build a simple workflow to get you started. In this guide, we’ll create a project that generates a daily fortune and logs it.
 
 ---
 
-### Step 1: Create a Project
+## What You’ll Build
 
-1. Log in to [WaveAssist Dashboard](https://app.waveassist.io)
-2. Click **Add Project**
-3. Name it something like `daily-fortune`
+**Goal**: Create a workflow that:
+1. Randomly selects a fortune.
+2. Logs the fortune to the console.
 
-<Frame caption="Create new project">
-  <img src="/images/create_project.png" alt="Create new project" />
+---
+
+## Step 1: Create a New Project
+
+1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io).
+2. Click the **Add Project** button.
+3. Fill in the project details:
+   - **Project Name**: `Daily Fortune`
+   - **Project Key**: `daily_fortune` (A unique identifier used for project-wide activities and API integrations.)
+4. Click **Create**.
+
+<Frame caption="Create a New Project">
+  <img src="/images/create_project_popup.png" alt="Create Project Popup" />
 </Frame>
 
 ---
 
-### Step 2: Add a Node to Choose a Fortune
+## Step 2: Add a Node to Choose a Fortune
 
-Create a Python node named `choose_fortune.py` with the following code:
+Nodes are Python scripts that represent tasks in your workflow. Let’s create a node to randomly select a fortune.
+
+1. Open your project and click **Add Node**.
+2. Fill in the node details:
+   - **Node Name**: `Choose Fortune`
+   - **File Name**: `choose_fortune.py`
+   - **Starting Node**: Check this box to make it the starting node of the workflow.
+3. Paste the following code into the editor:
 
 ```python
 import random
+import pandas as pd
 
 def run():
-    fortunes = [
-        "Today is your lucky day!",
-        "Curiosity leads to breakthroughs.",
-        "Take a deep breath and smile.",
-        "Be bold. Fortune favors the brave!"
-    ]
-    return random.choice(fortunes)
+    # Define a DataFrame with fortunes
+    fortunes_df = pd.DataFrame({
+        "fortune": [
+            "Today is your lucky day!",
+            "Curiosity leads to breakthroughs.",
+            "Take a deep breath and smile.",
+            "Be bold. Fortune favors the brave!"
+        ]
+    })
+
+    # Randomly select a fortune
+    selected_fortune = fortunes_df.sample(1).iloc[0]['fortune']
+    print(f"Selected Fortune: {selected_fortune}")
+    return selected_fortune
 ```
+
+4. Click **Save**.
+
+<Frame caption="Create and Edit Node">
+  <img src="/images/create_edit_node.png" alt="Create/Edit Node Popup" />
+</Frame>
 
 ---
 
-### Step 3: Add a Node to Log It
+## Step 3: Add a Node to Log the Fortune
 
-Now create a second node called `log_fortune.py`:
+Now, let’s create another node to log the fortune.
+
+1. Click **Add Node** again.
+2. Fill in the node details:
+   - **Node Name**: `Log Fortune`
+   - **File Name**: `log_fortune.py`
+   - **Run After Nodes**: Select `Choose Fortune` from the list to ensure this node runs after the `Choose Fortune` node.
+3. Paste the following code into the editor:
 
 ```python
 def run(inputs):
+    # Log the fortune to the console
     print("🧿 Your fortune:", inputs)
 ```
 
----
+4. Click **Save**.
 
-### Step 4: Connect the Nodes
-
-1. Open the Workflow builder
-2. Connect `choose_fortune` → `log_fortune`
-
-<Frame caption="Edit and Connect Nodes">
-  <img src="/images/code_editor.png" alt="Code Editor View" />
+<Frame caption="Log Fortune Node">
+  <img src="/images/log_fortune_node.png" alt="Log Fortune Node" />
 </Frame>
 
 ---
 
-### Step 5: Run It!
+## Step 4: Run the Workflow
 
-Click **Run Workflow** — and see your fortune appear in the logs!
+1. Once the nodes are created, press the **Play** button on the **Starting Node** from the project dashboard.
+2. Open the **Logs** section to see the output.
+
+You should see something like this:
+```
+🧿 Your fortune: Today is your lucky day!
+```
 
 <Frame caption="Workflow Log Output">
-  <img src="/images/project_details.png" alt="Project details and logs" />
+  <img src="/images/workflow.png" alt="Workflow Logs" />
 </Frame>
 
 ---
 
-## What's Next?
+## What’s Next?
 
-Want to take your project further?
+Want to expand your project? Here are some ideas:
+- **Send the fortune via email**: Use the WaveAssist email integration.
+- **Post to Slack**: Connect your workflow to Slack.
+- **Add logic**: Categorize fortunes as funny, motivational, or serious.
+- **Generate fortunes with AI**: Use OpenAI to create dynamic fortunes.
 
 Check out the full guide: [Expand Your Fortune Project →](./whats-next)
 
-You'll learn how to:
-- Send the fortune via **email**
-- Post to **Slack**
-- Add logic based on the **type** of message (funny, motivational, etc.)
-- Generate fortunes with **OpenAI**
-
 ---
 
-💡 Want more examples? Visit [github.com/WaveAssist/waveassist](https://github.com/WaveAssist/waveassist)
+💡 Want more examples? Visit [WaveAssist GitHub Repository](https://github.com/WaveAssist/waveassist) for inspiration.
