@@ -46,22 +46,27 @@ Nodes are Python scripts that represent tasks in your workflow. Let’s create a
 ```python
 import random
 import pandas as pd
+import waveassist
 
-def run():
-    # Define a DataFrame with fortunes
-    fortunes_df = pd.DataFrame({
-        "fortune": [
-            "Today is your lucky day!",
-            "Curiosity leads to breakthroughs.",
-            "Take a deep breath and smile.",
-            "Be bold. Fortune favors the brave!"
-        ]
-    })
+# Define a DataFrame with fortunes
+fortunes_df = pd.DataFrame({
+    "fortune": [
+        "Today is your lucky day!",
+        "Curiosity leads to breakthroughs.",
+        "Take a deep breath and smile.",
+        "Be bold. Fortune favors the brave!"
+    ]
+})
 
-    # Randomly select a fortune
-    selected_fortune = fortunes_df.sample(1).iloc[0]['fortune']
-    print(f"Selected Fortune: {selected_fortune}")
-    return selected_fortune
+# Randomly select a fortune
+selected_fortune = fortunes_df.sample(1).iloc[0]['fortune']
+
+# Store the selected fortune in the Data tab
+waveassist.store_data('daily_fortune', selected_fortune)
+
+# Fetch the stored fortune to confirm
+retrieved_fortune = waveassist.fetch_data('daily_fortune')
+print(f"Selected Fortune: {retrieved_fortune}")
 ```
 
 4. Click **Save**.
@@ -84,9 +89,13 @@ Now, let’s create another node to log the fortune.
 3. Paste the following code into the editor:
 
 ```python
-def run(inputs):
-    # Log the fortune to the console
-    print("🧿 Your fortune:", inputs)
+import waveassist
+
+# Fetch the stored fortune from the Data tab
+retrieved_fortune = waveassist.fetch_data('daily_fortune')
+
+# Log the fortune to the console
+print("🧿 Your fortune:", retrieved_fortune)
 ```
 
 4. Click **Save**.

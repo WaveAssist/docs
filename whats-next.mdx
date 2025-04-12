@@ -1,9 +1,9 @@
 ---
-title: What's Next
-description: Ideas to expand your Fortune of the Day project with WaveAssist
+title: Next Steps
+description: Expand your Fortune of the Day project with advanced features and integrations
 ---
 
-# What’s Next: Expand Your Fortune of the Day Project
+# Next Steps: Expand Your Fortune of the Day Project
 
 You've built your first working workflow — congrats! 🎉  
 Now let’s explore how you can grow it into a full automation system.
@@ -26,24 +26,30 @@ import smtplib
 from email.message import EmailMessage
 import waveassist
 
-def run():
-    # Fetch email credentials from the Data tab
-    email_user = waveassist.fetch_data('email_user')
-    email_password = waveassist.fetch_data('email_password')
-    recipient_email = waveassist.fetch_data('recipient_email')
+# Fetch email credentials from the Data tab
+# Note: If using Gmail, you may need to enable "App Passwords" or allow less secure apps.
+# For more information, visit: https://support.google.com/accounts/answer/185833
+email_user = waveassist.fetch_data('email_user')
+email_password = waveassist.fetch_data('email_password')
+recipient_email = waveassist.fetch_data('recipient_email')
 
-    msg = EmailMessage()
-    msg.set_content(f"Your Fortune: {waveassist.fetch_data('daily_fortune')}")
-    msg["Subject"] = "Your Daily Fortune"
-    msg["From"] = email_user
-    msg["To"] = recipient_email
+# Fetch the stored fortune from the Data tab
+daily_fortune = waveassist.fetch_data('daily_fortune')
 
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
-        server.starttls()
-        server.login(email_user, email_password)
-        server.send_message(msg)
+# Create the email message
+msg = EmailMessage()
+msg.set_content(f"Your Fortune: {daily_fortune}")
+msg["Subject"] = "Your Daily Fortune"
+msg["From"] = email_user
+msg["To"] = recipient_email
 
-    print("Email sent successfully!")
+# Send the email
+with smtplib.SMTP("smtp.gmail.com", 587) as server:
+    server.starttls()
+    server.login(email_user, email_password)
+    server.send_message(msg)
+
+print("Email sent successfully!")
 ```
 
 4. Store your email credentials as variables in the **Data** section of the dashboard.
@@ -65,19 +71,19 @@ Replace the static list of fortunes with an AI-generated response using OpenAI:
 import openai
 import waveassist
 
-def run():
-    # Fetch OpenAI API key from the Data tab
-    openai.api_key = waveassist.fetch_data('openai_key')
+# Fetch OpenAI API key from the Data tab
+openai.api_key = waveassist.fetch_data('openai_key')
 
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": "Give me a short daily fortune"}]
-    )
-    fortune = response.choices[0].message.content.strip()
+# Generate a fortune using OpenAI
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": "Give me a short daily fortune"}]
+)
+fortune = response.choices[0].message.content.strip()
 
-    # Store the generated fortune in the Data tab
-    waveassist.store_data('daily_fortune', fortune)
-    print(f"Generated Fortune: {fortune}")
+# Store the generated fortune in the Data tab
+waveassist.store_data('daily_fortune', fortune)
+print(f"Generated Fortune: {fortune}")
 ```
 
 3. Click **Save**.
@@ -98,19 +104,18 @@ Store fortunes in a MongoDB database, with each user having their own dedicated 
 from pymongo import MongoClient
 import waveassist
 
-def run():
-    # Fetch MongoDB URI from the Data tab
-    mongo_uri = waveassist.fetch_data('mongo_uri')
-    client = MongoClient(mongo_uri)
-    db = client["user_database"]
-    collection = db["fortunes"]
+# Fetch MongoDB URI from the Data tab
+mongo_uri = waveassist.fetch_data('mongo_uri')
+client = MongoClient(mongo_uri)
+db = client["user_database"]
+collection = db["fortunes"]
 
-    # Fetch the daily fortune from the Data tab
-    fortune = waveassist.fetch_data('daily_fortune')
+# Fetch the daily fortune from the Data tab
+fortune = waveassist.fetch_data('daily_fortune')
 
-    # Insert the fortune into the database
-    waveassist.store_data("fortune": fortune)
-    print("Fortune saved to MongoDB")
+# Insert the fortune into the database
+waveassist.store_data("fortune": fortune)
+print("Fortune saved to MongoDB")
 ```
 
 3. Click **Save**.
@@ -132,16 +137,16 @@ from pymongo import MongoClient
 import waveassist
 
 def run():
-    # Fetch MongoDB URI from the Data tab
-    mongo_uri = waveassist.fetch_data('mongo_uri')
-    client = MongoClient(mongo_uri)
-    db = client["user_database"]
-    collection = db["fortunes"]
+# Fetch MongoDB URI from the Data tab
+mongo_uri = waveassist.fetch_data('mongo_uri')
+client = MongoClient(mongo_uri)
+db = client["user_database"]
+collection = db["fortunes"]
 
-    # Fetch all fortunes
-    fortunes = [doc["fortune"] for doc in collection.find()]
-    waveassist.store_data('retrieved_fortunes', fortunes)
-    print(f"Retrieved {len(fortunes)} fortunes from MongoDB")
+# Fetch all fortunes
+fortunes = [doc["fortune"] for doc in collection.find()]
+waveassist.store_data('retrieved_fortunes', fortunes)
+print(f"Retrieved {len(fortunes)} fortunes from MongoDB")
 ```
 
 3. Click **Save**.
