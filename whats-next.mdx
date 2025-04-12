@@ -12,12 +12,11 @@ Now let’s explore how you can grow it into a full automation system.
 
 ## 1. Send Your Fortune via Email
 
-Add a new node `send_email.py`:
+Add a new node `Send Email`:
 
 1. Click **Add Node** in your project dashboard.
 2. Fill in the node details:
    - **Node Name**: `Send Email`
-   - **File Name**: `send_email.py`
    - **Run After Nodes**: Select `Log Fortune` to ensure this node runs after the fortune is logged.
 3. Paste the following code into the editor:
 
@@ -26,19 +25,22 @@ import smtplib
 from email.message import EmailMessage
 import waveassist
 
+# Replace <your-uid-here> with your actual UID
+waveassist.init('<your-uid-here>', 'daily-fortune')
+
 # Fetch email credentials from the Data tab
 # Note: If using Gmail, you may need to enable "App Passwords" or allow less secure apps.
 # For more information, visit: https://support.google.com/accounts/answer/185833
-email_user = waveassist.fetch_data('email_user')
-email_password = waveassist.fetch_data('email_password')
-recipient_email = waveassist.fetch_data('recipient_email')
+email_user = 'your_email@gmail.com'
+email_password = 'your_password'
+recipient_email = 'recipient_email@gmail.com'
 
 # Fetch the stored fortune from the Data tab
-daily_fortune = waveassist.fetch_data('daily_fortune')
+today_fortune = waveassist.fetch_data('today_fortune')
 
 # Create the email message
 msg = EmailMessage()
-msg.set_content(f"Your Fortune: {daily_fortune}")
+msg.set_content(f"Your Fortune: {today_fortune}")
 msg["Subject"] = "Your Daily Fortune"
 msg["From"] = email_user
 msg["To"] = recipient_email
@@ -57,106 +59,21 @@ print("Email sent successfully!")
 
 ---
 
-## 2. Use AI to Generate Fortunes
+## 2. Run and Re-Deploy
 
-Replace the static list of fortunes with an AI-generated response using OpenAI:
+1. Run your workflow by clickin on the play button of the first node and verify that you received the email successfully.
+2. Once confirmed, click **Deploy** to publish your updated workflow with version `0.0.2`.
 
-1. Add a new node `generate_fortune.py`:
-   - **Node Name**: `Generate Fortune`
-   - **File Name**: `generate_fortune.py`
-   - **Starting Node**: Check this box to make it the starting node of the workflow.
-2. Paste the following code into the editor:
-
-```python
-import openai
-import waveassist
-
-# Fetch OpenAI API key from the Data tab
-openai.api_key = waveassist.fetch_data('openai_key')
-
-# Generate a fortune using OpenAI
-response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": "Give me a short daily fortune"}]
-)
-fortune = response.choices[0].message.content.strip()
-
-# Store the generated fortune in the Data tab
-waveassist.store_data('daily_fortune', fortune)
-print(f"Generated Fortune: {fortune}")
-```
-
-3. Click **Save**.
-
----
-
-## 3. Save Fortunes to MongoDB
-
-Store fortunes in a MongoDB database, with each user having their own dedicated MongoDB URI accessible via the **Data** tab.
-
-1. Add a new node:
-   - **Node Name**: `Save to MongoDB`
-   - **File Name**: `save_to_mongo.py`
-   - **Run After Nodes**: Select `Send Email` to ensure this node runs after the email is sent.
-2. Paste the following code into the editor:
-
-```python
-from pymongo import MongoClient
-import waveassist
-
-# Fetch MongoDB URI from the Data tab
-mongo_uri = waveassist.fetch_data('mongo_uri')
-client = MongoClient(mongo_uri)
-db = client["user_database"]
-collection = db["fortunes"]
-
-# Fetch the daily fortune from the Data tab
-fortune = waveassist.fetch_data('daily_fortune')
-
-# Insert the fortune into the database
-waveassist.store_data("fortune": fortune)
-print("Fortune saved to MongoDB")
-```
-
-3. Click **Save**.
-
----
-
-## 4. Retrieve Fortunes from MongoDB
-
-To retrieve stored fortunes, create a new node:
-
-1. Add a new node:
-   - **Node Name**: `Retrieve Fortunes`
-   - **File Name**: `retrieve_fortunes.py`
-   - **Starting Node**: Check this box to make it the starting node of the workflow.
-2. Paste the following code into the editor:
-
-```python
-from pymongo import MongoClient
-import waveassist
-
-def run():
-# Fetch MongoDB URI from the Data tab
-mongo_uri = waveassist.fetch_data('mongo_uri')
-client = MongoClient(mongo_uri)
-db = client["user_database"]
-collection = db["fortunes"]
-
-# Fetch all fortunes
-fortunes = [doc["fortune"] for doc in collection.find()]
-waveassist.store_data('retrieved_fortunes', fortunes)
-print(f"Retrieved {len(fortunes)} fortunes from MongoDB")
-```
-
-3. Click **Save**.
+That's it! You will now receive daily emails about your fortune from WaveAssist! 🎉
 
 ---
 
 ## Keep Building
 
 From this foundation, you can build:
+
 - A Slack bot to share fortunes with your team.
+- Use AI to generate new fortunes for you everyday.
 - A fortune-sharing web page using WaveAssist’s API.
 - An SMS notifier to send fortunes via text.
 - A morale booster for your team with personalized messages.

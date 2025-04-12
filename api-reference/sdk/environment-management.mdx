@@ -1,6 +1,6 @@
 ---
-title: 'Environment Management'
-description: 'How to manage environments in the WaveAssist SDK'
+title: "Environment Management"
+description: "How to manage environments in the WaveAssist SDK"
 ---
 
 Learn how to work with different **environments** in your WaveAssist projects.
@@ -20,57 +20,8 @@ waveassist.init(
     project_key="your-project-id",
     environment_key="production"
 )
-
-# Or switch environment later
-waveassist.set_environment("staging")
 ```
 
-## Environment-Specific Operations
+## Environment defaults
 
-```python
-# Store data in specific environment
-waveassist.store_data(
-    "config",
-    {"debug": True},
-    environment="development"
-)
-
-# Fetch data from specific environment
-prod_config = waveassist.fetch_data(
-    "config",
-    environment="production"
-)
-```
-
-## Environment Functions
-
-| Function | Description |
-|----------|-------------|
-| set_environment(key) | Switch to a different environment |
-| get_current_environment() | Get the current environment key |
-| list_environments() | List all available environments |
-
-## Best Practices
-
-1. Use consistent environment names
-2. Keep production data separate
-3. Use environment-specific configurations
-4. Handle environment switching carefully
-
-## Example: Environment Management
-
-```python
-import waveassist
-
-# Initialize with default environment
-waveassist.init(token="token", project_key="project")
-
-# List all environments
-environments = waveassist.list_environments()
-
-# Work with different environments
-for env in ["development", "staging", "production"]:
-    waveassist.set_environment(env)
-    config = waveassist.fetch_data("config")
-    print(f"{env} config:", config)
-```
+If no environment is specified, the SDK will default to the environment configured as the default in your project settings or the environment the code is running on.
