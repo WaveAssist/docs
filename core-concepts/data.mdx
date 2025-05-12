@@ -3,29 +3,28 @@ title: "Variables"
 description: "Learn about managing data and variables in WaveAssist."
 ---
 
-The **Variables** section in WaveAssist allows you to manage variables and view data used in your workflows. You can create, update, and delete variables, as well as inspect and manage data directly from the dashboard.
+The **Variables** section in WaveAssist allows you to manage key-value pairs and view workflow data directly from your dashboard. You can create, update, delete variables, and inspect associated data with ease.
+
+[View variables in your project](https://app.waveassist.io/manage/variables)
 
 ## Managing Variables
 
-Variables are key-value pairs that can be used across your nodes and workflows. They can be dynamically updated or manually set.
+Variables are reusable key-value pairs used across nodes and workflows. These values can be dynamically updated during execution or manually configured.
 
 ### Key Features
-- **Create Variables**: Add new variables with a specific key and data type.
-- **Edit Variables**: Update the value or data type of existing variables.
-- **Delete Variables**: Remove variables that are no longer needed.
+- **Create Variables**: Add new variables with a unique key and select a data type.
+- **Edit Variables**: Modify the value or type of an existing variable.
+- **Delete Variables**: Remove variables that are no longer in use.
 
-### Data Types
-WaveAssist supports the following data types for variables:
+### Supported Data Types
 
 #### `json`
-- Use the `json` data type to store structured data, such as objects or arrays.
-- Example:
-  ```json
-  {
-    "key": "value",
-    "list": [1, 2, 3]
-  }
-  ```
+Structured data such as objects or arrays.
+```json
+{
+  "key": "value",
+  "list": [1, 2, 3]
+}
 
 #### `string`
 - Use the `string` data type to store plain text or simple values.
