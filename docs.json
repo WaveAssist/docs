@@ -43,6 +43,25 @@
           "api-reference/sdk/fetch-data",
           "api-reference/sdk/environment-management"
         ]
+      },
+      {
+        "tab": "Templates",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "api-reference/template/templates"
+            ]
+          },
+          {
+            "group": "Available Templates",
+            "pages": [
+              "api-reference/template/gitzoid",
+              "api-reference/template/fintrek",
+              "api-reference/template/brandtrace"
+            ]
+          }
+        ]
       }
     ]
   },
