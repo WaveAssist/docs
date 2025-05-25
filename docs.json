@@ -37,11 +37,26 @@
       },
       {
         "tab": "SDK Reference",
-        "pages": [
-          "api-reference/sdk/initialization",
-          "api-reference/sdk/store-data",
-          "api-reference/sdk/fetch-data",
-          "api-reference/sdk/environment-management"
+        "groups": [
+          {
+            "group": "Python SDK",
+            "pages": [
+              "api-reference/sdk/initialization",
+              "api-reference/sdk/store-data",
+              "api-reference/sdk/fetch-data",
+              "api-reference/sdk/environment-management"
+            ]
+          },
+          {
+            "group": "Command Line Interface",
+            "pages": [
+              "api-reference/cli/using-cli",
+              "api-reference/cli/login",
+              "api-reference/cli/push",
+              "api-reference/cli/pull",
+              "api-reference/cli/version"
+            ]
+          }
         ]
       },
       {

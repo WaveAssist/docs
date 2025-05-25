@@ -1,0 +1,33 @@
+---
+title: 'login'
+description: 'Authenticate with WaveAssist'
+---
+
+# `waveassist login`
+
+Authenticate with WaveAssist through your browser and store the authentication token locally.
+
+## Usage
+
+```bash
+waveassist login
+```
+
+## Description
+
+The `login` command opens your default web browser to authenticate with WaveAssist. After successful authentication, your access token will be stored securely on your machine for future use.
+
+This command needs to be run before using other WaveAssist CLI commands that require authentication, such as `push` and `pull`.
+
+## Options
+
+This command has no additional options.
+
+## Examples
+
+```bash
+$ waveassist login
+# Browser will open for authentication
+# After successful login:
+✓ Successfully authenticated with WaveAssist
+```

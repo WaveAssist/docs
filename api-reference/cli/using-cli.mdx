@@ -1,0 +1,40 @@
+---
+title: 'CLI Guide'
+description: 'Getting started with the WaveAssist Command Line Interface'
+---
+
+# WaveAssist CLI
+
+WaveAssist provides a command-line interface (CLI) for managing your projects and workflows directly from your terminal.
+
+## Installation
+
+The CLI is included with the WaveAssist Python package. Install it using pip:
+
+```bash
+pip install waveassist
+```
+
+## Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `waveassist login` | Authenticate via browser and store token |
+| `waveassist push` | Push local Python code to WaveAssist |
+| `waveassist pull` | Pull Python code from WaveAssist |
+| `waveassist version` | Show CLI version information |
+
+## Getting Started
+
+1. First, authenticate using:
+   ```bash
+   waveassist login
+   ```
+
+2. You can then use other commands like `push` and `pull` to manage your project code.
+
+For detailed information about each command, refer to the individual command references:
+- [login](/api-reference/cli/login)
+- [push](/api-reference/cli/push)
+- [pull](/api-reference/cli/pull)
+- [version](/api-reference/cli/version)
