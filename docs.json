@@ -19,6 +19,7 @@
               "introduction",
               "quickstart",
               "whats-next",
+              "core-concepts/templates",
               "faq"
             ]
           },
@@ -63,25 +64,6 @@
               "api-reference/data-types/string",
               "api-reference/data-types/json",
               "api-reference/data-types/dataframe"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Templates",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "api-reference/template/templates"
-            ]
-          },
-          {
-            "group": "Available Templates",
-            "pages": [
-              "api-reference/template/gitzoid",
-              "api-reference/template/fintrek",
-              "api-reference/template/brandtrace"
             ]
           }
         ]
