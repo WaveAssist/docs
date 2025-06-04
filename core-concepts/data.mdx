@@ -18,6 +18,13 @@ Variables are reusable key-value pairs used across nodes and workflows. These va
 
 ### Supported Data Types
 
+#### `string`
+Use the `string` data type to store plain text or simple values.
+Example:
+```plaintext
+"This is a string value"
+```
+
 #### `json`
 Structured data such as objects or arrays.
 ```json
@@ -25,12 +32,17 @@ Structured data such as objects or arrays.
   "key": "value",
   "list": [1, 2, 3]
 }
+```
 
-#### `string`
-- Use the `string` data type to store plain text or simple values.
-- Example:
-  ```plaintext
-  "This is a string value"
+#### `dataframe`
+Use the `dataframe` data type to store tabular data in CSV format.
+Supports structured data with rows and columns.
+Example:
+```csv
+id,name,value
+1,item1,100
+2,item2,200
+3,item3,300
   ```
 
 ## Viewing and Managing Variables

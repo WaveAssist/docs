@@ -3,10 +3,6 @@ title: 'JSON Data Type'
 description: 'Working with JSON data in WaveAssist'
 ---
 
-# JSON Data Type
-
-Learn how to work with JSON (dictionary and list) data in WaveAssist.
-
 ## Overview
 
 WaveAssist supports storing and retrieving JSON-compatible Python objects (dictionaries and lists).
@@ -94,16 +90,3 @@ project = {
 waveassist.store_data("project_info", project)
 ```
 
-## Error Handling
-
-```python
-try:
-    # Attempting to store non-JSON-serializable data
-    class CustomClass:
-        pass
-    
-    invalid_data = {"obj": CustomClass()}
-    waveassist.store_data("invalid", invalid_data)
-except waveassist.SerializationError:
-    print("Data is not JSON-serializable")
-```

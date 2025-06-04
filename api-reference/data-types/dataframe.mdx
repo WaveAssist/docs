@@ -3,10 +3,6 @@ title: 'DataFrame Data Type'
 description: 'Working with pandas DataFrames in WaveAssist'
 ---
 
-# DataFrame Data Type
-
-Learn how to work with pandas DataFrames in WaveAssist.
-
 ## Overview
 
 WaveAssist provides native support for pandas DataFrames, making it easy to store and retrieve tabular data.
@@ -74,12 +70,3 @@ category_df['category'] = category_df['category'].astype('category')
 waveassist.store_data("categorical_data", category_df)
 ```
 
-## Error Handling
-
-```python
-try:
-    huge_df = pd.DataFrame(np.random.randn(1000000, 100))
-    waveassist.store_data("huge_data", huge_df)
-except waveassist.DataSizeError:
-    print("DataFrame exceeds size limit")
-```
