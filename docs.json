@@ -45,6 +45,7 @@
               "api-reference/sdk/initialization",
               "api-reference/sdk/store-data",
               "api-reference/sdk/fetch-data",
+              "api-reference/sdk/send-mail",
               "api-reference/sdk/environment-management"
             ]
           },
