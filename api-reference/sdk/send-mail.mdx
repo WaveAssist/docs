@@ -19,7 +19,6 @@ waveassist.init(
 # Send a simple HTML email
 waveassist.send_mail(
     to_email="recipient@example.com",
-    from_email="sender@example.com",
     subject="Test Email",
     html_content="<p>This is a test email sent from WaveAssist.</p>"
 )
@@ -30,7 +29,6 @@ waveassist.send_mail(
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `to_email` | `str` | Recipient's email address |
-| `from_email` | `str` | Sender's email address |
 | `subject` | `str` | Subject line of the email |
 | `html_content` | `str` | HTML content of the email body |
 
@@ -48,7 +46,6 @@ waveassist.init(
 # Send an email with formatted HTML content
 waveassist.send_mail(
     to_email="bob_alice@gmail.com",
-    from_email="bob_alice@gmail.com",
     subject="Terminal Test Email",
     html_content="<p>This is a test email sent from terminal.</p>"
 )
@@ -57,7 +54,6 @@ waveassist.send_mail(
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `to_email` | `str` | Yes | Recipient's email address |
-| `from_email` | `str` | Yes | Sender's email address |
 | `subject` | `str` | Yes | Subject line of the email |
 | `html_content` | `str` | Yes | HTML content of the email body |
 
