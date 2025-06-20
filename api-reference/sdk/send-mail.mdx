@@ -18,7 +18,6 @@ waveassist.init(
 
 # Send a simple HTML email
 waveassist.send_mail(
-    to_email="recipient@example.com",
     subject="Test Email",
     html_content="<p>This is a test email sent from WaveAssist.</p>"
 )
@@ -28,9 +27,9 @@ waveassist.send_mail(
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `to_email` | `str` | Recipient's email address |
 | `subject` | `str` | Subject line of the email |
 | `html_content` | `str` | HTML content of the email body |
+| `attachment_file` | `Optional[file]` | File object opened in binary mode ('rb') to attach to the email (optional) |
 
 ## Example with Custom Content
 
@@ -43,18 +42,19 @@ waveassist.init(
     "your-project-key"
 )
 
-# Send an email with formatted HTML content
-waveassist.send_mail(
-    to_email="bob_alice@gmail.com",
-    subject="Terminal Test Email",
-    html_content="<p>This is a test email sent from terminal.</p>"
-)
+# Send an email with formatted HTML content and attachment
+with open('document.pdf', 'rb') as file:
+    waveassist.send_mail(
+        subject="Terminal Test Email",
+        html_content="<p>This is a test email sent from terminal.</p>",
+        attachment_file=file
+    )
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `to_email` | `str` | Yes | Recipient's email address |
 | `subject` | `str` | Yes | Subject line of the email |
 | `html_content` | `str` | Yes | HTML content of the email body |
+| `attachment_file` | `file` | No | File object opened in binary mode ('rb') to attach to the email |
 
 
