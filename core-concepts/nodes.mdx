@@ -3,10 +3,11 @@ title: "Nodes"
 description: "Learn about managing nodes in WaveAssist."
 ---
 
-**Nodes** are the building blocks of your workflows in WaveAssist. You can create, update, and manage nodes directly from the dashboard. Each node can be scheduled to run at specific intervals or triggered manually.
+**Nodes** are the building blocks of your AI assistants in WaveAssist. You can create, update, and manage nodes directly from the dashboard. Each node can be scheduled to run at specific intervals or triggered manually.
 
 ## Key Features
-- **Create Nodes**: Add new nodes to your project.
+
+- **Create Nodes**: Add new nodes to your AI assistant.
 - **Edit Nodes**: Modify existing nodes.
 - **Delete Nodes**: Remove nodes that are no longer needed.
 - **View Code**: Inspect the code associated with a node.
@@ -14,7 +15,8 @@ description: "Learn about managing nodes in WaveAssist."
 
 ## Enabling and Disabling Nodes
 
-Each node can be enabled or disabled based on your workflow requirements:
+Each node can be enabled or disabled based on your AI assistant requirements:
+
 - **Enabled**: The node is active and will execute based on its schedule or when triggered manually.
 - **Disabled**: The node is inactive and will not execute, even if triggered manually or scheduled.
 
@@ -22,25 +24,29 @@ You can toggle the status of a node using the **Status** dropdown in the node ed
 
 ## Starting Node
 
-The **Starting Node** option allows you to designate a node as the entry point for your workflow. When a workflow is triggered, execution begins from the starting node and proceeds through the defined sequence of nodes.
+The **Starting Node** option allows you to designate a node as the entry point for your AI assistant. When an AI assistant is triggered, execution begins from the starting node and proceeds through the defined sequence of nodes.
 
-- Only one node can be marked as the starting node in a workflow.
-- If no starting node is defined, the workflow will not execute automatically.
+- Only one node can be marked as the starting node in an AI assistant.
+- If no starting node is defined, the AI assistant will not execute automatically.
 
 ## Scheduling Nodes
 
 Nodes can be scheduled to run at specific intervals or based on a cron expression. WaveAssist supports two scheduling types:
 
 ### Interval Scheduling
+
 - Run the node at fixed intervals, such as every 12 hours or every 2 days.
 - This is useful for periodic tasks that need to execute regularly.
 
 ### Cron Job Scheduling
+
 - Use cron expressions to define complex schedules with precision.
 - Cron jobs allow you to specify the exact minute, hour, day, month, and day of the week for execution.
 
 #### Example Cron Expression
+
 The following example runs the node at 9:35 AM, 11:35 AM, and 1:35 PM on weekdays (Monday to Friday) in the `Asia/Kolkata` timezone:
+
 ```
 Minute: 35
 Hour: 9,11,13
@@ -51,6 +57,7 @@ Timezone: Asia/Kolkata
 ```
 
 ### How to Configure Scheduling
+
 1. Open the **Edit Node** dialog.
 2. Select the **Schedule Type**:
    - Choose **Interval** for fixed intervals.
@@ -59,4 +66,4 @@ Timezone: Asia/Kolkata
 4. Select the appropriate timezone.
 5. Save your changes.
 
-By combining scheduling options with the ability to enable/disable nodes, you can create highly flexible and efficient workflows in WaveAssist.
+By combining scheduling options with the ability to enable/disable nodes, you can create highly flexible and efficient AI assistants in WaveAssist.

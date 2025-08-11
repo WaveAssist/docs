@@ -1,47 +1,49 @@
 ---
-title: 'Node Operations'
-description: 'API endpoints for managing nodes in WaveAssist'
+title: "Node Operations"
+description: "API endpoints for managing nodes in WaveAssist AI assistants"
 ---
 
 # Node Operations
 
-These endpoints allow you to manage nodes within your WaveAssist projects, including creation, updates, and code management.
+These endpoints allow you to manage nodes within your WaveAssist AI assistant projects, including creation, updates, and code management.
 
 ## Fetch Nodes
 
-Retrieve all nodes for a project.
+Retrieve all nodes for an AI assistant project.
 
 ```endpoint
 GET /manage/fetch_nodes
 ```
 
 ### Query Parameters
+
 ```json
 {
-  "project_key": "string"
+	"project_key": "string"
 }
 ```
 
 ## Create Node
 
-Create a new node in your project.
+Create a new node in your AI assistant project.
 
 ```endpoint
 POST /manage/create_node
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "node_name": "string",
-  "node_type": "string",
-  "description": "string",
-  "configuration": {
-    "inputs": [],
-    "outputs": [],
-    "parameters": {}
-  }
+	"project_key": "string",
+	"node_name": "string",
+	"node_type": "string",
+	"description": "string",
+	"configuration": {
+		"inputs": [],
+		"outputs": [],
+		"parameters": {}
+	}
 }
 ```
 
@@ -54,33 +56,35 @@ POST /manage/update_node
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "node_key": "string",
-  "node_name": "string",
-  "description": "string",
-  "configuration": {
-    "inputs": [],
-    "outputs": [],
-    "parameters": {}
-  }
+	"project_key": "string",
+	"node_key": "string",
+	"node_name": "string",
+	"description": "string",
+	"configuration": {
+		"inputs": [],
+		"outputs": [],
+		"parameters": {}
+	}
 }
 ```
 
 ## Delete Node
 
-Remove a node from your project.
+Remove a node from your AI assistant project.
 
 ```endpoint
 POST /manage/delete_node
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "node_key": "string"
+	"project_key": "string",
+	"node_key": "string"
 }
 ```
 
@@ -93,11 +97,12 @@ POST /manage/update_code
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "node_key": "string",
-  "code": "string",
-  "language": "string"
+	"project_key": "string",
+	"node_key": "string",
+	"code": "string",
+	"language": "string"
 }
 ```

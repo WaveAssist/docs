@@ -1,11 +1,11 @@
 ---
-title: 'Run DAG'
-description: 'API endpoint for executing a DAG workflow'
+title: "Run DAG"
+description: "API endpoint for executing a DAG AI assistant"
 ---
 
 # Run DAG API
 
-This endpoint allows you to trigger the execution of a DAG (Directed Acyclic Graph) workflow in your WaveAssist project.
+This endpoint allows you to trigger the execution of a DAG (Directed Acyclic Graph) AI assistant in your WaveAssist project.
 
 ## Endpoint
 
@@ -23,20 +23,20 @@ Authorization: Bearer YOUR_API_TOKEN
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| project_id | string | Your project identifier |
+| Parameter  | Type   | Description                          |
+| ---------- | ------ | ------------------------------------ |
+| project_id | string | Your AI assistant project identifier |
 
 ## Request Body
 
 ```json
 {
-  "dag_id": "your_dag_id",
-  "parameters": {
-    "param1": "value1",
-    "param2": "value2"
-  },
-  "environment": "production"  // optional
+	"dag_id": "your_dag_id",
+	"parameters": {
+		"param1": "value1",
+		"param2": "value2"
+	},
+	"environment": "production" // optional
 }
 ```
 
@@ -46,12 +46,12 @@ Authorization: Bearer YOUR_API_TOKEN
 
 ```json
 {
-  "status": "success",
-  "data": {
-    "run_id": "workflow_run_id",
-    "status": "started",
-    "started_at": "2025-03-23T14:00:00Z"
-  }
+	"status": "success",
+	"data": {
+		"run_id": "ai_assistant_run_id",
+		"status": "started",
+		"started_at": "2025-03-23T14:00:00Z"
+	}
 }
 ```
 
@@ -59,8 +59,8 @@ Authorization: Bearer YOUR_API_TOKEN
 
 ```json
 {
-  "status": "error",
-  "message": "Error message description"
+	"status": "error",
+	"message": "Error message description"
 }
 ```
 
@@ -73,7 +73,7 @@ headers = {
     'Authorization': 'Bearer YOUR_API_TOKEN'
 }
 
-workflow_data = {
+ai_assistant_data = {
     'dag_id': 'your_dag_id',
     'parameters': {
         'param1': 'value1',
@@ -84,7 +84,7 @@ workflow_data = {
 response = requests.post(
     'https://api.waveassist.io/v1/workflow/your_project_id/run',
     headers=headers,
-    json=workflow_data
+    json=ai_assistant_data
 )
 
 result = response.json()

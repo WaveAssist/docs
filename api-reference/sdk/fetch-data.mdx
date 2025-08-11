@@ -1,9 +1,9 @@
 ---
-title: 'Fetch Data'
-description: 'How to retrieve data using the WaveAssist SDK'
+title: "Fetch Data"
+description: "How to retrieve data using the WaveAssist SDK"
 ---
 
-Learn how to **fetch data** using the WaveAssist SDK.
+Learn how to **fetch data** using the WaveAssist SDK for your AI assistants.
 
 ## Basic Usage
 
@@ -31,10 +31,10 @@ print(df.head())  # Displays the DataFrame
 
 ## Function Parameters
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| key | string | Yes | Key of the data to retrieve |
-| environment | string | No | Override default environment |
+| Parameter   | Type   | Required | Description                  |
+| ----------- | ------ | -------- | ---------------------------- |
+| key         | string | Yes      | Key of the data to retrieve  |
+| environment | string | No       | Override default environment |
 
 ## Error Handling
 
@@ -57,4 +57,3 @@ string_data = waveassist.fetch_data("text_key")  # returns str
 dict_data = waveassist.fetch_data("dict_key")  # returns dict
 df_data = waveassist.fetch_data("dataframe_key")  # returns pd.DataFrame
 ```
-

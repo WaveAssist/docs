@@ -1,11 +1,11 @@
 ---
-title: 'pull'
-description: 'Pull code from WaveAssist'
+title: "pull"
+description: "Pull code from WaveAssist"
 ---
 
 # `waveassist pull`
 
-Pull Python code from a WaveAssist project to your local machine.
+Pull Python code from a WaveAssist AI assistant project to your local machine.
 
 ## Usage
 
@@ -15,19 +15,19 @@ waveassist pull PROJECT_ID [--force]
 
 ## Arguments
 
-| Argument | Description |
-|----------|-------------|
-| `PROJECT_ID` | The ID of the project to pull code from |
+| Argument     | Description                                          |
+| ------------ | ---------------------------------------------------- |
+| `PROJECT_ID` | The ID of the AI assistant project to pull code from |
 
 ## Options
 
-| Option | Description |
-|--------|-------------|
+| Option    | Description                                      |
+| --------- | ------------------------------------------------ |
 | `--force` | Skip confirmation before overwriting local files |
 
 ## Description
 
-The `pull` command downloads Python code from the specified WaveAssist project to your local machine. This command only pulls code files and does not affect project configuration or data.
+The `pull` command downloads Python code from the specified WaveAssist AI assistant project to your local machine. This command only pulls code files and does not affect project configuration or data.
 
 By default, the command will ask for confirmation before overwriting local files. Use the `--force` flag to skip this confirmation.
 
@@ -36,7 +36,7 @@ By default, the command will ask for confirmation before overwriting local files
 ```bash
 # Pull with confirmation
 $ waveassist pull my-project-id
-Are you sure you want to pull code from project 'my-project-id'? This may overwrite local files. [y/N]: y
+Are you sure you want to pull code from AI assistant project 'my-project-id'? This may overwrite local files. [y/N]: y
 ✓ Successfully pulled code from project
 
 # Pull without confirmation

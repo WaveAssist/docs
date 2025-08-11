@@ -3,12 +3,12 @@ title: "Quickstart"
 description: "Get started with WaveAssist in minutes"
 ---
 
-# Quickstart: Build Your First Workflow
+# Quickstart: Deploy Your First AI Assistant
 
 Welcome to WaveAssist! There are two ways to get started:
 
-1. **Use an Assistant**: Get started instantly with our [pre-built assistants](/api-reference/assistants) like [GitZoid](/api-reference/assistants/gitzoid) for AI-powered PR reviews.
-2. **Build from Scratch**: Follow this guide to create a simple workflow that generates a daily fortune.
+1. **Deploy an Assistant**: Get started instantly with our [pre-built assistants](/api-reference/assistants) like [GitZoid](/api-reference/assistants/gitzoid) for AI-powered PR reviews.
+2. **Build from Scratch**: Follow this guide to create a simple AI assistant that generates a daily fortune.
 
 ---
 
@@ -21,9 +21,9 @@ Welcome to WaveAssist! There are two ways to get started:
 
 ---
 
-## Option 2: Build a Simple Workflow
+## Option 2: Build a Simple AI Assistant
 
-**Goal**: Create a workflow that:
+**Goal**: Create an AI assistant that:
 
 1. Randomly selects a fortune.
 2. Logs the fortune to the console.
@@ -52,13 +52,13 @@ Welcome to WaveAssist! There are two ways to get started:
 
 ## Step 2: Add a Node to Choose a Fortune
 
-Nodes are Python scripts that represent tasks in your workflow. Let’s create a node to randomly select a fortune.
+Nodes are Python scripts that represent tasks in your AI assistant. Let's create a node to randomly select a fortune.
 
 1. Open your project and click **Add Node**.
 2. Fill in the node details:
    - **Node Name**: `Choose Fortune`
    - **Enabled**: 'Enabled'
-   - **Starting Node**: Check this box to make it the starting node of the workflow.
+   - **Starting Node**: Check this box to make it the starting node of the AI assistant.
    - **Interval**: Cron to run it every morning at 8:30 am of your timezone.
 
 <Frame caption="Create and Edit Node">
@@ -87,7 +87,7 @@ fortunes = [
     "Every day is a fresh start."
 ]
 
-# Store the list of fortunes in WaveAssist’s data storage under the key 'fortunes'
+# Store the list of fortunes in WaveAssist's data storage under the key 'fortunes'
 waveassist.store_data('fortunes', fortunes)
 
 # Print confirmation with the stored fortunes
@@ -98,7 +98,7 @@ print("Stored Fortunes:", fortunes)
 
 ## Step 3: Add another Node to Log the Fortune
 
-Now, let’s create another node to log the fortune.
+Now, let's create another node to log the fortune.
 
 1. Click **Add Node** again.
 2. Fill in the node details:
@@ -135,7 +135,7 @@ waveassist.store_data('today_fortune',today_fortune)
 
 ---
 
-## Step 4: Run the Workflow
+## Step 4: Run the AI Assistant
 
 1. Once the nodes are created, press the **Play** button on the **Starting Node** from the project dashboard.
    <Frame caption="Log Fortune Node">
@@ -149,44 +149,44 @@ You should see something like this:
 Your fortune for today: Today is your lucky day!
 ```
 
-<Frame caption="Workflow Log Output">
+<Frame caption="AI Assistant Log Output">
 	<img src="/images/logs.png" alt="Workflow Logs" />
 </Frame>
 
 ---
 
-## Step 5: Deploy the Workflow
+## Step 5: Deploy the AI Assistant
 
-To ensure your workflow runs every day at the scheduled time, you must deploy it.
+To ensure your AI assistant runs every day at the scheduled time, you must deploy it.
 
 1. Click on the **Deploy** button in the project dashboard. Enter version code and deploy.
    <Frame caption="Deploy">
    	<img src="/images/deploy.png" alt="deploy" />
    </Frame>
-2. Navigate to the **Deployments** section to verify that your workflow is successfully deployed.
+2. Navigate to the **Deployments** section to verify that your AI assistant is successfully deployed.
    <Frame caption="Deployments">
    	<img src="/images/deployment.png" alt="Deployments" />
    </Frame>
 
-Now your code will auto run every day as the cron schedule and print your fortune!🎉
+Now your AI assistant will auto run every day as the cron schedule and print your fortune!🎉
 
 Want this fortune to be mailed you you everyday, follow along to the next section to expand the project to receive daily fortune emails!
 
 ---
 
-## What’s Next?
+## What's Next?
 
-Want to expand your project? Here are some ideas:
+Want to expand your AI assistant? Here are some ideas:
 
 - **Send the fortune via email**: Use the WaveAssist email integration.
-- **Post to Slack**: Connect your workflow to Slack.
+- **Post to Slack**: Connect your AI assistant to Slack.
 - **Add logic**: Categorize fortunes as funny, motivational, or serious.
 - **Generate fortunes with AI**: Use OpenAI to create dynamic fortunes.
 
-Check out the full guide: [Expand Your Fortune Project →](./whats-next)
+Check out the full guide: [Expand Your Fortune AI Assistant →](./whats-next)
 
-<Card title="Expand Your Fortune Project" icon="arrow-right" href="./whats-next">
-	Enhance your fortune project to receive daily fortune emails directly in your inbox!
+<Card title="Expand Your Fortune AI Assistant" icon="arrow-right" href="./whats-next">
+	Enhance your fortune AI assistant to receive daily fortune emails directly in your inbox!
 </Card>
 
 ---
