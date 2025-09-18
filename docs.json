@@ -2,6 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "WaveAssist Documentation",
+  "titleSuffix": " – WaveAssist Docs",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -93,6 +94,18 @@
       "x": "https://x.com/waveassist_io",
       "github": "https://github.com/waveassist",
       "linkedin": "https://linkedin.com/company/waveassist"
+    }
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "robots": "index, follow",
+      "googlebot": "index, follow",
+      "description": "WaveAssist empowers you to deploy customizable AI assistants, whether it's finance-focused automation, brand monitoring, lead generation, or any AI-driven task.",
+      "canonical": "https://docs.waveassist.io",
+      "og:title": "WaveAssist Documentation",
+      "og:description": "WaveAssist empowers you to deploy customizable AI assistants, whether it's finance-focused automation, brand monitoring, lead generation, or any AI-driven task.",
+      "twitter:card": "summary"
     }
   }
 }
