@@ -1,92 +1,97 @@
 ---
-title: 'Deployment & Debug'
-description: 'API endpoints for deployment and debugging in WaveAssist'
+title: "Deployment & Debug"
+description: "API endpoints for deployment and debugging in WaveAssist AI assistants"
 ---
 
 # Deployment & Debug
 
-These endpoints allow you to manage deployments, run DAGs, and debug your WaveAssist projects.
+These endpoints allow you to manage deployments, run DAGs, and debug your WaveAssist AI assistant projects.
 
 ## Deploy Project
 
-Deploy a project to make it live.
+Deploy an AI assistant project to make it live.
 
 ```endpoint
 POST /deploy/deploy_project
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "environment": "string"
+	"project_key": "string",
+	"environment": "string"
 }
 ```
 
 ## Stop Deployment
 
-Stop a running deployment.
+Stop a running AI assistant deployment.
 
 ```endpoint
 POST /deploy/stop_deployment
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "deployment_id": "string"
+	"project_key": "string",
+	"deployment_id": "string"
 }
 ```
 
 ## Run DAG
 
-Execute a DAG (Directed Acyclic Graph) of nodes.
+Execute a DAG (Directed Acyclic Graph) of AI assistant nodes.
 
 ```endpoint
 POST /deploy/run_dag
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "dag_config": {
-    "nodes": [],
-    "edges": []
-  }
+	"project_key": "string",
+	"dag_config": {
+		"nodes": [],
+		"edges": []
+	}
 }
 ```
 
 ## Generate DAG Image
 
-Generate a visual representation of your DAG.
+Generate a visual representation of your AI assistant DAG.
 
 ```endpoint
 GET /deploy/generate_dag_image
 ```
 
 ### Query Parameters
+
 ```json
 {
-  "project_key": "string"
+	"project_key": "string"
 }
 ```
 
 ## Run Code
 
-Execute code in a specific node.
+Execute code in a specific AI assistant node.
 
 ```endpoint
 POST /deploy/run_code
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "node_key": "string",
-  "parameters": {}
+	"project_key": "string",
+	"node_key": "string",
+	"parameters": {}
 }
 ```
 
@@ -94,53 +99,59 @@ POST /deploy/run_code
 
 ### Fetch Logs
 
-Retrieve logs for debugging.
+Retrieve logs for debugging AI assistants.
 
 ```endpoint
 GET /debug/fetch_logs
 ```
 
 ### Query Parameters
+
 ```json
 {
-  "project_key": "string",
-  "node_key": "string",
-  "start_time": "string",
-  "end_time": "string"
+	"project_key": "string",
+	"node_key": "string",
+	"start_time": "string",
+	"end_time": "string"
 }
 ```
 
 ### Package Management
 
 #### Fetch Installed Packages
+
 ```endpoint
 GET /debug/fetch_installed_packages
 ```
 
 #### Install Package
+
 ```endpoint
 POST /debug/install_package
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "package_name": "string",
-  "version": "string"
+	"project_key": "string",
+	"package_name": "string",
+	"version": "string"
 }
 ```
 
 #### Uninstall Package
+
 ```endpoint
 POST /debug/uninstall_package
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "package_name": "string"
+	"project_key": "string",
+	"package_name": "string"
 }
 ```
 
@@ -154,7 +165,7 @@ from waveassist import WaveAssist
 # Initialize client
 wa = WaveAssist(project_key='your_project_key')
 
-# Deploy project
+# Deploy AI assistant project
 wa.deploy()
 
 # Run a specific node

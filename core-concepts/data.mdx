@@ -3,15 +3,16 @@ title: "Variables"
 description: "Learn about managing data and variables in WaveAssist."
 ---
 
-The **Variables** section in WaveAssist allows you to manage key-value pairs and view workflow data directly from your dashboard. You can create, update, delete variables, and inspect associated data with ease.
+The **Variables** section in WaveAssist allows you to manage key-value pairs and view AI assistant data directly from your dashboard. You can create, update, delete variables, and inspect associated data with ease.
 
 [View variables in your project](https://app.waveassist.io/manage/variables)
 
 ## Managing Variables
 
-Variables are reusable key-value pairs used across nodes and workflows. These values can be dynamically updated during execution or manually configured.
+Variables are reusable key-value pairs used across nodes and AI assistants. These values can be dynamically updated during execution or manually configured.
 
 ### Key Features
+
 - **Create Variables**: Add new variables with a unique key and select a data type.
 - **Edit Variables**: Modify the value or type of an existing variable.
 - **Delete Variables**: Remove variables that are no longer in use.
@@ -19,37 +20,44 @@ Variables are reusable key-value pairs used across nodes and workflows. These va
 ### Supported Data Types
 
 #### `string`
+
 Use the `string` data type to store plain text or simple values.
 Example:
+
 ```plaintext
 "This is a string value"
 ```
 
 #### `json`
+
 Structured data such as objects or arrays.
+
 ```json
 {
-  "key": "value",
-  "list": [1, 2, 3]
+	"key": "value",
+	"list": [1, 2, 3]
 }
 ```
 
 #### `dataframe`
+
 Use the `dataframe` data type to store tabular data in CSV format.
 Supports structured data with rows and columns.
 Example:
+
 ```csv
 id,name,value
 1,item1,100
 2,item2,200
 3,item3,300
-  ```
+```
 
 ## Viewing and Managing Variables
 
-The **Data Viewer** allows you to inspect and manage the data used in your workflows. You can filter, view, and export data directly from the dashboard.
+The **Data Viewer** allows you to inspect and manage the data used in your AI assistants. You can filter, view, and export data directly from the dashboard.
 
 ### Key Features
+
 - **View Data**: Inspect the data stored in your project.
 - **Filter Data**: Apply filters to narrow down the data you want to view.
 - **Export Data**: Download data for external use.
@@ -57,6 +65,5 @@ The **Data Viewer** allows you to inspect and manage the data used in your workf
 ## Managing DataFrames
 
 For more complex data structures like DataFrames, we recommend using the WaveAssist Python SDK. The SDK provides a convenient interface to fetch, manipulate, and store DataFrames.
-
 
 By combining the dashboard and the Python SDK, you can efficiently manage all your data needs in WaveAssist.

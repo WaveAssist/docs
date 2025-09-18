@@ -1,11 +1,11 @@
 ---
-title: 'push'
-description: 'Push local code to WaveAssist'
+title: "push"
+description: "Push local code to WaveAssist"
 ---
 
 # `waveassist push`
 
-Push your local Python code to a WaveAssist project.
+Push your local Python code to a WaveAssist AI assistant project.
 
 ## Usage
 
@@ -15,19 +15,19 @@ waveassist push PROJECT_ID [--force]
 
 ## Arguments
 
-| Argument | Description |
-|----------|-------------|
-| `PROJECT_ID` | The ID of the project to push code to |
+| Argument     | Description                                        |
+| ------------ | -------------------------------------------------- |
+| `PROJECT_ID` | The ID of the AI assistant project to push code to |
 
 ## Options
 
-| Option | Description |
-|--------|-------------|
+| Option    | Description                      |
+| --------- | -------------------------------- |
 | `--force` | Skip confirmation before pushing |
 
 ## Description
 
-The `push` command uploads your local Python code to the specified WaveAssist project. This command only pushes code files and does not affect project configuration or data.
+The `push` command uploads your local Python code to the specified WaveAssist AI assistant project. This command only pushes code files and does not affect project configuration or data.
 
 By default, the command will ask for confirmation before pushing. Use the `--force` flag to skip this confirmation.
 
@@ -36,7 +36,7 @@ By default, the command will ask for confirmation before pushing. Use the `--for
 ```bash
 # Push with confirmation
 $ waveassist push my-project-id
-Are you sure you want to push local code to project 'my-project-id'? [y/N]: y
+Are you sure you want to push local code to AI assistant project 'my-project-id'? [y/N]: y
 ✓ Successfully pushed code to project
 
 # Push without confirmation

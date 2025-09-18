@@ -1,14 +1,9 @@
 ---
-title: 'Development Guide'
-description: 'Learn how to develop with WaveAssist'
+title: "Development Guide"
+description: "Learn how to develop AI assistants with WaveAssist"
 ---
 
-<Info>
-  **Prerequisites**: 
-  - Python 3.7 or higher
-  - pip (Python package manager)
-  - A WaveAssist account and project key
-</Info>
+<Info>**Prerequisites**: - Python 3.7 or higher - pip (Python package manager) - A WaveAssist account and project key</Info>
 
 ## Development Options
 
@@ -51,7 +46,7 @@ The WaveAssist dashboard offers a complete development environment in your brows
 
 ### Local Development
 
-Develop and test your nodes locally using our Python SDK.
+Develop and test your AI assistant nodes locally using our Python SDK.
 
 <CodeGroup>
 
@@ -86,25 +81,25 @@ response = helper.process_data(url, headers)
 ## Best Practices
 
 <CardGroup>
-  <Card title="Version Control" icon="code-branch">
-    Keep your node code in version control and use the dashboard for deployment
-  </Card>
-  <Card title="Testing" icon="vial">
-    Test nodes locally before deploying to production
-  </Card>
-  <Card title="Environment Variables" icon="key">
-    Use project variables for sensitive data and configurations
-  </Card>
-  <Card title="Modular Design" icon="cubes">
-    Break complex workflows into smaller, reusable nodes
-  </Card>
+	<Card title="Version Control" icon="code-branch">
+		Keep your AI assistant code in version control and use the dashboard for deployment
+	</Card>
+	<Card title="Testing" icon="vial">
+		Test AI assistant nodes locally before deploying to production
+	</Card>
+	<Card title="Environment Variables" icon="key">
+		Use project variables for sensitive data and configurations
+	</Card>
+	<Card title="Modular Design" icon="cubes">
+		Break complex AI assistants into smaller, reusable nodes
+	</Card>
 </CardGroup>
 
 ## Advanced Features
 
 ### Custom Node Types
 
-Create specialized nodes for your workflow:
+Create specialized nodes for your AI assistant:
 
 ```python
 from waveassist import WAHelper, NodeType
@@ -121,7 +116,7 @@ def process_data(input_data):
 
 ### Scheduling
 
-Configure node execution schedules:
+Configure AI assistant node execution schedules:
 
 <CodeGroup>
 
@@ -137,7 +132,7 @@ helper.schedule_node('node_name', cron='0 */12 * * *')
 
 ```python Custom
 # Custom schedule
-helper.schedule_node('node_name', 
+helper.schedule_node('node_name',
     trigger=lambda: condition_met())
 ```
 
@@ -154,7 +149,7 @@ helper.schedule_node('node_name',
   </Accordion>
 
   <Accordion title="Node Execution Errors">
-    Common node execution issues:
+    Common AI assistant node execution issues:
     - Missing dependencies
     - Incorrect input data format
     - Memory/CPU constraints
@@ -163,6 +158,4 @@ helper.schedule_node('node_name',
   </Accordion>
 </AccordionGroup>
 
-<Note>
-For more advanced development scenarios and API documentation, refer to our [API Reference](/api-reference/introduction).
-</Note>
+<Note>For more advanced development scenarios and API documentation, refer to our [API Reference](/api-reference/introduction).</Note>

@@ -1,9 +1,9 @@
 ---
-title: 'Frequently Asked Questions'
-description: 'Common questions about using WaveAssist'
+title: "Frequently Asked Questions"
+description: "Common questions about using WaveAssist"
 ---
 
-Find answers to common questions about WaveAssist, including workflows, nodes, data management, and security.
+Find answers to common questions about WaveAssist, including AI assistants, nodes, data management, and security.
 
 ---
 
@@ -11,28 +11,26 @@ Find answers to common questions about WaveAssist, including workflows, nodes, d
 
 <AccordionGroup>
   <Accordion icon="question" title="What is WaveAssist?">
-    WaveAssist is a powerful platform for creating and managing Python-based workflows. It allows you to:
-    - Automate tasks using nodes
+    WaveAssist is a powerful platform for deploying customizable AI assistants. It allows you to:
+    - Deploy pre-built AI assistants with one click
+    - Customize AI assistants using Python nodes
     - Manage data securely with dedicated MongoDB databases
-    - Schedule workflows with triggers or cron jobs
-    - Deploy and monitor workflows in live environments
+    - Schedule AI assistants with triggers or cron jobs
+    - Deploy and monitor AI assistants in live environments
     - Integrate with APIs, AI models, and external tools
   </Accordion>
 
-  <Accordion icon="key" title="How do I get my project key?">
-    1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io).
-    2. Select your project.
-    3. Go to **Project Settings**.
-    4. Find your project key in the **API Keys** section.
-    
-    **Important**: Keep your project key secure and never share it publicly.
-  </Accordion>
+{" "}
+<Accordion icon="key" title="How do I get my project key?">
+	1. Log in to the [WaveAssist Dashboard](https://app.waveassist.io). 2. Select your project. 3. Go to **Project Settings**. 4. Find your project key
+	in the **API Keys** section. **Important**: Keep your project key secure and never share it publicly.
+</Accordion>
 
   <Accordion icon="code" title="Can I develop locally without using the dashboard?">
     Yes! WaveAssist provides a Python SDK that allows you to:
-    - Develop and test nodes locally
+    - Develop and test AI assistant nodes locally
     - Access project variables
-    - Manage data and workflows
+    - Manage data and AI assistants
     - Deploy changes to production
     
     Install the SDK using: `pip install waveassist`
@@ -41,31 +39,25 @@ Find answers to common questions about WaveAssist, including workflows, nodes, d
 
 ---
 
-## Nodes and Workflows
+## Nodes and AI Assistants
 
 <AccordionGroup>
   <Accordion icon="diagram-project" title="What are nodes in WaveAssist?">
-    Nodes are the building blocks of your workflows. Each node:
+    Nodes are the building blocks of your AI assistants. Each node:
     - Performs a specific task (e.g., data processing, API integration)
     - Can process inputs and generate outputs
     - Can be scheduled to run automatically or triggered manually
-    - Can be connected to other nodes to create complex workflows
+    - Can be connected to other nodes to create complex AI assistants
   </Accordion>
 
-  <Accordion icon="clock" title="How do I schedule node execution?">
-    WaveAssist provides multiple scheduling options:
-    - Fixed intervals (e.g., every 12 hours)
-    - Cron expressions for custom schedules
-    - Event-based triggers
-    - Manual execution
-    
-    You can set schedules either through the dashboard or using the Python SDK.
-  </Accordion>
+{" "}
+<Accordion icon="clock" title="How do I schedule node execution?">
+	WaveAssist provides multiple scheduling options: - Fixed intervals (e.g., every 12 hours) - Cron expressions for custom schedules - Event-based
+	triggers - Manual execution You can set schedules either through the dashboard or using the Python SDK.
+</Accordion>
 
-  
-
-  <Accordion icon="play" title="How do I run a workflow?">
-    To run a workflow:
+  <Accordion icon="play" title="How do I run an AI assistant?">
+    To run an AI assistant:
     1. Ensure your nodes are connected using the **Starting Node** and **Run After Nodes** options.
     2. Press the **Play** button on the **Starting Node** from the project dashboard.
     3. Monitor the execution in the **Logs** section.
@@ -89,7 +81,7 @@ Find answers to common questions about WaveAssist, including workflows, nodes, d
     Yes, WaveAssist ensures your data is secure through the following measures:
     - **Encrypted Data Transmission**: All data transmitted between your browser, the WaveAssist platform, and external integrations is encrypted using industry-standard protocols.
     - **Dedicated MongoDB Database**: Each user is allocated a dedicated MongoDB database to ensure complete data isolation and protection.
-    - **Secure Project Isolation**: Projects are securely isolated to prevent unauthorized access or interference between different workflows.
+    - **Secure Project Isolation**: Projects are securely isolated to prevent unauthorized access or interference between different AI assistants.
     - **Access Control with Project Keys**: Each project is protected with unique project keys, ensuring only authorized users can access or modify project data.
     - **Environment-Specific Configurations**: Data is managed securely across different environments (e.g., development, staging, production) with strict access controls.
     
@@ -103,26 +95,24 @@ Find answers to common questions about WaveAssist, including workflows, nodes, d
 
 <AccordionGroup>
   <Accordion icon="sparkles" title="What are WaveAssist Assistants?">
-    Assistants are pre-configured, production-ready workflows that you can deploy instantly. They:
-    - Come with best-practice implementations
+    Assistants are pre-configured, production-ready AI assistants that you can deploy instantly. They:
+    - Come with best-practice AI implementations
     - Include optimized settings and configurations
     - Can be customized to match your specific needs
   </Accordion>
 
-  <Accordion icon="rocket" title="How do I get started with Assistants?">
-    Getting started with Assistants is easy:
-    - Browse our [Assistants gallery](https://waveassist.io/assistants)
-    - Click "Deploy with WaveAssist" on your chosen assistant
-    - Follow the setup instructions
-    - Customize the configuration as needed
-  </Accordion>
+{" "}
+<Accordion icon="rocket" title="How do I get started with Assistants?">
+	Getting started with Assistants is easy: - Browse our [Assistants gallery](https://waveassist.io/assistants) - Click "Deploy with WaveAssist" on
+	your chosen assistant - Follow the setup instructions - Customize the AI configuration as needed
+</Accordion>
 
   <Accordion icon="gear" title="Can I customize an Assistant?">
     Yes! After deploying an assistant, you can:
-    - Modify workflow configurations
+    - Modify AI assistant configurations
     - Add or remove nodes
     - Update environment variables
-    - Customize the implementation to match your needs
+    - Customize the AI implementation to match your needs
   </Accordion>
 </AccordionGroup>
 

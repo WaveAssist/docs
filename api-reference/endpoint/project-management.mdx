@@ -1,93 +1,98 @@
 ---
-title: 'Project Management'
-description: 'API endpoints for managing WaveAssist projects'
+title: "Project Management"
+description: "API endpoints for managing WaveAssist AI assistant projects"
 ---
 
 # Project Management
 
-These endpoints allow you to manage your WaveAssist projects, including creation, fetching project details, and managing project variables.
+These endpoints allow you to manage your WaveAssist AI assistant projects, including creation, fetching project details, and managing project variables.
 
 ## Create Project
 
-Create a new project in WaveAssist.
+Create a new AI assistant project in WaveAssist.
 
 ```endpoint
 POST /manage/create_project
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_name": "string",
-  "description": "string"
+	"project_name": "string",
+	"description": "string"
 }
 ```
 
 ## Fetch All Projects
 
-Retrieve a list of all your projects.
+Retrieve a list of all your AI assistant projects.
 
 ```endpoint
 GET /manage/fetch_all_projects
 ```
 
 ### Response
+
 ```json
 {
-  "projects": [
-    {
-      "project_key": "string",
-      "project_name": "string",
-      "description": "string",
-      "created_at": "string"
-    }
-  ]
+	"projects": [
+		{
+			"project_key": "string",
+			"project_name": "string",
+			"description": "string",
+			"created_at": "string"
+		}
+	]
 }
 ```
 
 ## Fetch Project Variables
 
-Get all variables associated with a project.
+Get all variables associated with an AI assistant project.
 
 ```endpoint
 GET /manage/fetch_project_variables
 ```
 
 ### Query Parameters
+
 ```json
 {
-  "project_key": "string"
+	"project_key": "string"
 }
 ```
 
 ## Fetch Environments
 
-Get all environments configured for a project.
+Get all environments configured for an AI assistant project.
 
 ```endpoint
 GET /manage/fetch_environments
 ```
 
 ### Query Parameters
+
 ```json
 {
-  "project_key": "string"
+	"project_key": "string"
 }
 ```
 
 ## Create Data Key
 
-Create a new data key for storing project data.
+Create a new data key for storing AI assistant project data.
 
 ```endpoint
 POST /manage/create_data_key
 ```
 
 ### Request Body
+
 ```json
 {
-  "project_key": "string",
-  "key_name": "string",
-  "description": "string"
+	"project_key": "string",
+	"key_name": "string",
+	"description": "string"
 }
 ```
